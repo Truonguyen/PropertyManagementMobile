@@ -1,8 +1,16 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Text, View } from "react-native"; 
+import 'react-native-gesture-handler'; 
 
 import TabNavigator from "./components/Navigator";
 
-export default function App() {
-  return <TabNavigator />;
-}
+
+
+
+ const App  = () => {
+  return ( 
+      <TabNavigator />
+  ); 
+} 
+
+export default App;  

@@ -7,19 +7,36 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 import SearchScreen from "./SearchScreen";
 import SaveScreen from "./SaveScreen";
-import LoginScreen from "./LoginScreen";
+import LoginScreen from "./LoginScreen"; 
+import HomeScreen from "./HomeScreen"; 
 
 const TabNavigator = createMaterialBottomTabNavigator(
   {
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarLabel: "Home",
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{ color: tintColor }]} size={25} name={"ios-home"} />
+          </View>
+        ),
+      },
+    }, 
+
     Search: {
       screen: SearchScreen,
       navigationOptions: {
         tabBarLabel: "Search",
         tabBarIcon: ({ tintColor }) => (
           <View>
-            <Icon style={[{ color: tintColor }]} size={25} name={"ios-home"} />
-          </View>
-        ),
+            <Icon
+              style={[{ color: tintColor }]}
+              size={25}
+              name={"ios-settings"}
+            />
+          </View> 
+        ), 
       },
     },
 
@@ -48,7 +65,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
             <Icon
               style={[{ color: tintColor }]}
               size={25}
-              name={"ios-settings"}
+              name={"ios-person"}
             />
           </View>
         ),
@@ -58,9 +75,9 @@ const TabNavigator = createMaterialBottomTabNavigator(
 
   {
     initialRouteName: "Search",
-    activeColor: "#f0edf6",
-    inactiveColor: "#226557",
-    barStyle: { backgroundColor: "#f69b31" },
+    activeColor: "#FEFEFF",
+    inactiveColor: "#A4A4A7",
+    barStyle: { backgroundColor: "#3355FF" },
   }
 );
 
