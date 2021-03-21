@@ -59,7 +59,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
     Login: {
       screen: LoginScreen,
       navigationOptions: {
-        tabBarLabel: "Login",
+        tabBarLabel: "Profile",
         tabBarIcon: ({ tintColor }) => (
           <View>
             <Icon
@@ -77,7 +77,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
     initialRouteName: "Search",
     activeColor: "#FEFEFF",
     inactiveColor: "#A4A4A7",
-    barStyle: { backgroundColor: "#3355FF" },
+    barStyle: { backgroundColor: "#0B2545" },
   }
 );
 

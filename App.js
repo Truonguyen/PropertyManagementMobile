@@ -9,8 +9,10 @@ import TabNavigator from "./components/Navigator";
 
  const App  = () => {
   return ( 
-      <TabNavigator />
+      <TabNavigator 
+      />
   ); 
 } 
 
 export default App;  
+ 
