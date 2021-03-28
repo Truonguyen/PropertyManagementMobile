@@ -9,8 +9,8 @@ const SearchcScreen = (props) => {
       initialRegion={{
         latitude: 29.11878378360867,
         longitude: -82.10061956042549,
-        latitudeDelta: 0.015,
-        longitudeDelta: 0.0121,
+        latitudeDelta: 0.0025,
+        longitudeDelta: 0.0025,
       }}
     >
       <Marker
@@ -22,44 +22,47 @@ const SearchcScreen = (props) => {
           longitude: -82.10061956042549,
         }}
         image={require("../assets/map_marker_50.png")}
-      />
-
-      {/* <Callout tooltip>
-        <View>
-          <View style={styles.bubble}></View>
-          <Text>A short description</Text>
-          <Image
-            style={styles.image}
-            source={require("../assets/house_25.jpg")}
-          />
-          <View style={styles.arrowBorder} />
-          <View style={styles.arrow} />
-        </View>
-      </Callout> */}
+      >
+        {/* CALLOUT */}
+        <Callout tooltip>
+          <View>
+            <View style={styles.bubble}>
+              <Text style={styles.name}>
+                2610 se 67th street Ocala Fl 34480
+              </Text>
+              <Text>1 bed | 10 bath | 420 sqft | $1,100/month</Text>
+              <Image
+                style={styles.image}
+                source={require("../assets/house_25.jpg")}
+              />
+            </View>
+            <View style={styles.arrowBorder} />
+            <View style={styles.arrow} />
+          </View>
+        </Callout>
+      </Marker>
     </MapView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+  name: {
+    fontSize: 14,
+    marginBottom: 5,
   },
-
   map: {
     height: "100%",
   },
   bubble: {
-    flexDirection: "row",
+    flexDirection: "column",
     alignSelf: "flex-start",
     backgroundColor: "#fff",
     borderRadius: 6,
     borderColor: "#ccc",
-    borderWidth: 0.5,
+    borderWidth: 0.2,
     padding: 15,
-    width: 150,
+    width: 300,
+    alignItems: "center",
   },
 
   arrow: {
@@ -76,10 +79,11 @@ const styles = StyleSheet.create({
     borderTopColor: "#007a87",
     borderWidth: 16,
     alignSelf: "center",
-    marginTop: -0.05,
+    marginTop: -0.5,
   },
 
   image: {
+    marginTop: 20,
     width: 120,
     height: 80,
   },
