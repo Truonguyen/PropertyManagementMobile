@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ImageBackground } from "react-native";
-import {Image, ScrollView, StyleSheet,  Text, View } from "react-native";
+import {Image, ScrollView, StyleSheet,  Text, TouchableOpacity,  View } from "react-native";
 
 const HomeScreen = (props) => {
   return (
@@ -8,9 +8,28 @@ const HomeScreen = (props) => {
       <ImageBackground source = {require('../assets/b1.png')} style = {styles.topContainer}> 
       </ImageBackground> 
       <View style = {styles.bottomContainer}>  
+       
+      <TouchableOpacity style={styles.sideContainer}>
+        <Text>LOGIN</Text>
+      </TouchableOpacity>  
 
-
+      <TouchableOpacity style={styles.side1Container}>
+        <Text>Save</Text>
+      </TouchableOpacity>   
       </View>
+      <View style = {styles.bottom1Container}>   
+      
+      <TouchableOpacity style={styles.side2Container}>
+        <Text>Save</Text>
+      </TouchableOpacity>  
+
+      <TouchableOpacity style={styles.side3Container}>
+        <Text>Save</Text>
+      </TouchableOpacity>  
+      </View>    
+         
+      
+     
     </View>
     
  
@@ -26,24 +45,53 @@ const styles = StyleSheet.create({
   }, 
   
   topContainer: {
-    flex: 1.5,
+    flex: 2.5,
     flexDirection: "column", 
     width: '100%', 
     height: '100%',   
   }, 
 
-  logo: {
-    alignContent: "center", 
-    justifyContent: "center",  
-    position: "absolute",
-    flexDirection: "column", 
-  },
-  
   bottomContainer: { 
     flex: 1,
-    flexDirection: "column", 
+    flexDirection: "row", 
+    backgroundColor: "#8DA9C4",
+     
+  },  
+
+  bottom1Container: { 
+    flex: 1,
+    flexDirection: "row", 
     backgroundColor: "#8DA9C4",
     
+  }, 
+
+  sideContainer: {  
+    flex: 1, 
+    flexDirection: "row",  
+   
+  }, 
+
+  side1Container: {  
+    flex: 1, 
+    flexDirection: "row",  
+   
+  }, 
+
+  side2Container : {
+    flex: 1, 
+    flexDirection: "row",  
+    width: "10%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center", 
+    marginTop: 50,
+    backgroundColor: "white",
+  }, 
+
+  side3Container: {
+    flex: 1, 
+    flexDirection: "row", 
   }
   
     
