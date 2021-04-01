@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import { ImageBackground } from "react-native";
-import {Image, ScrollView, StyleSheet,  Text, TouchableOpacity,  View } from "react-native";
+import {Image, ScrollView, StyleSheet,  Text, TouchableOpacity,  View } from "react-native"; 
 import { Entypo, AntDesign, Feather, MaterialIcons } from "@expo/vector-icons";
 
 const HomeScreen = (props) => {
   return (
     <View style = {styles.container}>  
       <ImageBackground source = {require('../assets/b1.png')} style = {styles.topContainer}> 
-      </ImageBackground> 
+      </ImageBackground>  
+
+      
+      {/* icons documentation: https://docs.expo.io/guides/icons/ */}
       <View style = {styles.bottomContainer}>  
        
-       {/* icons documentation: https://docs.expo.io/guides/icons/ */}
-      <TouchableOpacity style={styles.sideContainer}>
-       
-      </TouchableOpacity>   
-      <Text>LOGIN</Text>
-
+      <TouchableOpacity
+          style={styles.button}
+          onPress={() => console.log("Maintenance")}
+        >
+          <Entypo name="tools" size={24} color="white" />
+          <Text style={{ color: "white" }}>Maintenance</Text>
+        </TouchableOpacity>
+     
       <TouchableOpacity style={styles.side1Container}>
-        <Text>Save</Text> 
+        <Text>Save</Text>
       </TouchableOpacity>   
       </View>
       <View style = {styles.bottom1Container}>   
@@ -39,6 +44,7 @@ const HomeScreen = (props) => {
 
   );
 };
+
 
 const styles = StyleSheet.create({
   container: { 
