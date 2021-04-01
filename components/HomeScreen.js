@@ -10,8 +10,9 @@ const HomeScreen = (props) => {
       <View style = {styles.bottomContainer}>  
        
       <TouchableOpacity style={styles.sideContainer}>
-        <Text>LOGIN</Text>
-      </TouchableOpacity>  
+       
+      </TouchableOpacity>   
+      <Text>LOGIN</Text>
 
       <TouchableOpacity style={styles.side1Container}>
         <Text>Save</Text>
