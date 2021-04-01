@@ -80,18 +80,12 @@ const styles = StyleSheet.create({
   side2Container : {
     flex: 1, 
     flexDirection: "row",  
-    width: "10%",
-    borderRadius: 25,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center", 
-    marginTop: 50,
-    backgroundColor: "white",
+   
   }, 
 
   side3Container: {
     flex: 1, 
-    flexDirection: "row", 
+    flexDirection: "row",  
   }
   
     
