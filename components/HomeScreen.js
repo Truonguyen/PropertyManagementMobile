@@ -13,30 +13,41 @@ const HomeScreen = (props) => {
       {/* icons documentation: https://docs.expo.io/guides/icons/ */}
       <View style = {styles.bottomContainer}>  
        
-      <TouchableOpacity
-          style={styles.button}
+        <TouchableOpacity
+          style={styles.sideContainer}
           onPress={() => console.log("Maintenance")}
         >
           <Entypo name="tools" size={24} color="white" />
           <Text style={{ color: "white" }}>Maintenance</Text>
         </TouchableOpacity>
      
-      <TouchableOpacity style={styles.side1Container}>
-        <Text>Save</Text>
-      </TouchableOpacity>   
-      </View>
-      <View style = {styles.bottom1Container}>   
-      
-      <TouchableOpacity style={styles.side2Container}>
-        <Text>Save</Text>
-      </TouchableOpacity>  
+        <TouchableOpacity
+          style={styles.side1Container}
+          onPress={() => console.log("Contact")}
+        >
+          <Feather name="user" size={24} color="white" />
+          <Text style={{ color: "white" }}>Account</Text>
+        </TouchableOpacity> 
+     
+        <TouchableOpacity
+          style={styles.side1Container}
+          onPress={() => console.log("Contact")}
+        >
+          <Feather name="list" size={24} color="white" />
+          <Text style={{ color: "white" }}>Listings</Text>
+        </TouchableOpacity> 
+ 
 
-      <TouchableOpacity style={styles.side3Container}>
-        <Text>Save</Text>
-      </TouchableOpacity>  
-      </View>    
-         
+        <TouchableOpacity
+          style={styles.side1Container}
+          onPress={() => console.log("Contact")}
+        >
+          <Feather name="phone-call" size={24} color="white" />
+          <Text style={{ color: "white" }}>Contact us</Text>
+        </TouchableOpacity>   
+       
       
+      </View>
      
     </View>
     
@@ -54,15 +65,15 @@ const styles = StyleSheet.create({
   }, 
   
   topContainer: {
-    flex: 2.5,
+    flex: 1,
     flexDirection: "column", 
     width: '100%', 
     height: '100%',   
   }, 
 
-  bottomContainer: { 
-    flex: 1,
-    flexDirection: "row", 
+  bottomContainer: {  
+    flexDirection: "row",
+    flexWrap: "wrap", 
     backgroundColor: "#8DA9C4",
      
   },  
@@ -75,26 +86,54 @@ const styles = StyleSheet.create({
   }, 
 
   sideContainer: {  
-    flex: 1, 
-    flexDirection: "row",  
+    alignItems: "center",
+    borderWidth: 1,
+    //borderRadius: 4,
+    borderColor: "lightgray",
+    backgroundColor: "#8DA9C4",
+    padding: 10,
+    width: "50%",
+    //marginRight: 10,
+    //marginTop: 10, 
    
   }, 
 
   side1Container: {  
-    flex: 1, 
-    flexDirection: "row",  
+    alignItems: "center",
+    borderWidth: 1,
+    //borderRadius: 4,
+    borderColor: "lightgray",
+    backgroundColor: "#8DA9C4",
+    padding: 10,
+    width: "50%",
+    //marginRight: 10,
+    //marginTop: 10,
    
   }, 
 
   side2Container : {
-    flex: 1, 
-    flexDirection: "row",  
+    alignItems: "center",
+    borderWidth: 1,
+    //borderRadius: 4,
+    borderColor: "lightgray",
+    backgroundColor: "#8DA9C4",
+    padding: 10,
+    width: "50%",
+    //marginRight: 10,
+    //marginTop: 10,
    
   }, 
 
   side3Container: {
-    flex: 1, 
-    flexDirection: "row",  
+    alignItems: "center",
+    borderWidth: 1,
+    //borderRadius: 4,
+    borderColor: "lightgray",
+    backgroundColor: "#8DA9C4",
+    padding: 10,
+    width: "50%",
+    //marginRight: 10,
+    //marginTop: 10, 
   }
   
     
