@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ImageBackground } from "react-native";
 import {Image, ScrollView, StyleSheet,  Text, TouchableOpacity,  View } from "react-native";
+import { Entypo, AntDesign, Feather, MaterialIcons } from "@expo/vector-icons";
 
 const HomeScreen = (props) => {
   return (
@@ -9,13 +10,14 @@ const HomeScreen = (props) => {
       </ImageBackground> 
       <View style = {styles.bottomContainer}>  
        
+       {/* icons documentation: https://docs.expo.io/guides/icons/ */}
       <TouchableOpacity style={styles.sideContainer}>
        
       </TouchableOpacity>   
       <Text>LOGIN</Text>
 
       <TouchableOpacity style={styles.side1Container}>
-        <Text>Save</Text>
+        <Text>Save</Text> 
       </TouchableOpacity>   
       </View>
       <View style = {styles.bottom1Container}>   
