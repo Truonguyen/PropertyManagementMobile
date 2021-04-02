@@ -1,40 +1,18 @@
 import React, { useState } from "react";
 import { ImageBackground } from "react-native";
 import {Image, ScrollView, StyleSheet,  Text, TouchableOpacity,  View } from "react-native"; 
-import { Entypo, AntDesign, Feather, MaterialIcons } from "@expo/vector-icons";
+
 
 const HomeScreen = (props) => {
   return (
     <View style = {styles.container}>  
-      <ImageBackground source = {require('../assets/b1.png')} style = {styles.topContainer}> 
+      <ImageBackground source = {require('../assets/b1.png')} style = {styles.topContainer}>  
+       <Image source ={require ('../assets/logo.png')} style = {styles.image}> 
+       </Image> 
       </ImageBackground>  
 
       
-      {/* icons documentation: https://docs.expo.io/guides/icons/ */}
-      <View style = {styles.bottomContainer}>  
-       
-      <TouchableOpacity
-          style={styles.button}
-          onPress={() => console.log("Maintenance")}
-        >
-          <Entypo name="tools" size={24} color="white" />
-          <Text style={{ color: "white" }}>Maintenance</Text>
-        </TouchableOpacity>
-     
-      <TouchableOpacity style={styles.side1Container}>
-        <Text>Save</Text>
-      </TouchableOpacity>   
-      </View>
-      <View style = {styles.bottom1Container}>   
       
-      <TouchableOpacity style={styles.side2Container}>
-        <Text>Save</Text>
-      </TouchableOpacity>  
-
-      <TouchableOpacity style={styles.side3Container}>
-        <Text>Save</Text>
-      </TouchableOpacity>  
-      </View>    
          
       
      
@@ -47,10 +25,14 @@ const HomeScreen = (props) => {
 
 
 const styles = StyleSheet.create({
-  container: { 
+  container: {   
     flex: 1, 
-    flexDirection: "column",
-    backgroundColor: 'white', 
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center', 
+    backgroundColor: 'white',  
+    alignContent: "center", 
+    justifyContent: "center"
   }, 
   
   topContainer: {
@@ -58,43 +40,12 @@ const styles = StyleSheet.create({
     flexDirection: "column", 
     width: '100%', 
     height: '100%',   
-  }, 
-
-  bottomContainer: { 
-    flex: 1,
-    flexDirection: "row", 
-    backgroundColor: "#8DA9C4",
-     
   },  
 
-  bottom1Container: { 
-    flex: 1,
-    flexDirection: "row", 
-    backgroundColor: "#8DA9C4",
-    
-  }, 
-
-  sideContainer: {  
-    flex: 1, 
-    flexDirection: "row",  
-   
-  }, 
-
-  side1Container: {  
-    flex: 1, 
-    flexDirection: "row",  
-   
-  }, 
-
-  side2Container : {
-    flex: 1, 
-    flexDirection: "row",  
-   
-  }, 
-
-  side3Container: {
-    flex: 1, 
-    flexDirection: "row",  
+  image : {
+    alignContent: "center", 
+    justifyContent: "center",  
+    alignSelf: "center"
   }
   
     
