@@ -1,43 +1,48 @@
 import React, { useState } from "react";
-import { ImageBackground } from "react-native";
+import { Dimensions, ImageBackground } from "react-native";
 import {Image, ScrollView, StyleSheet,  Text, TouchableOpacity,  View } from "react-native"; 
 
+const {height, width} = Dimensions.get("window"); 
 
 const HomeScreen = (props) => {
   return (
-    <View style = {styles.container}>  
-      <ImageBackground source = {require('../assets/b1.png')} style = {styles.topContainer}>  
-       <Image source ={require ('../assets/logo.png')} style = {styles.image}> 
-       </Image> 
-      </ImageBackground>  
-     
-    </View>
-    
- 
+    <View style = {styles.container}>
+      <View style ={styles.slider}>
+       
+      </View> 
+      <View style = {styles.footer}> 
+      </View> 
+      <View style = {styles.footer1}> 
+      </View>
+    </View> 
+
+
 
   );
-};
 
+  };
 
 const styles = StyleSheet.create({
-  container: {   
-    flex: 1, 
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center', 
-    backgroundColor: 'white',  
-    alignContent: "center", 
-    justifyContent: "center"
+  container: {
+    flex: 1,   
+    backgroundColor: "white"
+
   }, 
   
-  topContainer: {
-    flex: 1,
-    flexDirection: "column", 
-    width: '100%', 
-    height: '100%',   
-    
- 
+  slider: {
+    flex: 2 * height, 
+    backgroundColor: "#0B2545",  
+    borderTopRightRadius: 75, 
+    borderBottomLeftRadius: 75
+   
+  }, 
+
+  footer: {
+    flex: 1 * height 
+  } 
+
   
+
 });
 
 export default HomeScreen;
