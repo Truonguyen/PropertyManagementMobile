@@ -30,7 +30,7 @@ import {
 } from "react-native";
 
 const { width } = Dimensions.get("window");
-const height = width * 0.3; //60%
+const height = width * 0.6; //60%
 
 export default class Slider extends React.Component {
   state = {
