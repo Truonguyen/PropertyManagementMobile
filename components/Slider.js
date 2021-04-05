@@ -30,7 +30,7 @@ import {
 } from "react-native";
 
 const { width,} = Dimensions.get("window");
-const height = width * 0.8; //60%
+const height = width * 0.7; //60%
 
 export default class Slider extends React.Component {
   state = {
@@ -82,9 +82,10 @@ const styles = StyleSheet.create({
   container: {
     width : width * 1,
     height, 
-    marginTop: 14, 
+    marginTop: 105, 
     alignSelf: "center",  
-    borderBottomLeftRadius: 20
+    borderBottomLeftRadius: 20 
+
   },
 
   image: {
@@ -92,7 +93,9 @@ const styles = StyleSheet.create({
     height,
     resizeMode: "cover", 
     alignContent: "center", 
-    alignSelf: "center",   
+    alignSelf: "center",  
+    position: "relative",
+  
     
   },
 
@@ -100,8 +103,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     position: "absolute",
     bottom: 0,
-    alignSelf: "center", 
-    marginTop: 10 * height,   
+    alignSelf: "center",  
     borderRadius: 50
  
   },
