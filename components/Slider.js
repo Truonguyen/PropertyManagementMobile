@@ -29,8 +29,8 @@ import {
   StyleSheet,
 } from "react-native";
 
-const { width } = Dimensions.get("window");
-const height = width * 0.6; //60%
+const { width,} = Dimensions.get("window");
+const height = width * 0.8; //60%
 
 export default class Slider extends React.Component {
   state = {
@@ -80,21 +80,30 @@ export default class Slider extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    width,
-    height,
+    width : width * 1,
+    height, 
+    marginTop: 14, 
+    alignSelf: "center",  
+    borderBottomLeftRadius: 20
   },
 
   image: {
     width,
     height,
-    resizeMode: "cover",
+    resizeMode: "cover", 
+    alignContent: "center", 
+    alignSelf: "center",   
+    
   },
 
   pagination: {
     flexDirection: "row",
     position: "absolute",
     bottom: 0,
-    alignSelf: "center",
+    alignSelf: "center", 
+    marginTop: 10 * height,   
+    borderRadius: 50
+ 
   },
 
   pagingText: {

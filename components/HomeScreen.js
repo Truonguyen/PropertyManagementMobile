@@ -35,18 +35,13 @@ const styles = StyleSheet.create({
   }, 
   
   slider: {
-    flex: 2 * height, 
+    flex: 1.7 * height, 
     backgroundColor: "#0B2545",  
-    borderTopRightRadius: 75, 
-    borderBottomLeftRadius: 155
+    borderTopRightRadius: 35, 
+    borderBottomLeftRadius: 125
    
   }, 
 
-  slider1: {
-    width: 50,  
-    marginBottom: 60 * height
-   
-  }, 
 
   footer: { 
     flex: 1 * height,
