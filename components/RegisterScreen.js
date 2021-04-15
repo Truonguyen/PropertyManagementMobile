@@ -10,14 +10,17 @@ import {
   TouchableOpacity, 
   Dimensions, 
 } from "react-native"; 
-import {StackNavigator} from 'react-navigation'; 
+import {StackNavigator} from 'react-navigation';   
+import {NavigationContainer} from '@react-navigation/native'; 
+
 
  
 const {height, width} = Dimensions.get("window"); 
-export default function App() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
 
+const RegisterScreen = (props) => {
+ 
   return (
     <View style={styles.container}>
  
