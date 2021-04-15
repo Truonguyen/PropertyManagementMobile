@@ -12,11 +12,11 @@ import {
 } from "react-native"; 
 
 const {height, width} = Dimensions.get("window"); 
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
 
 const RegisterScreen = (props) => {
- 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <View style={styles.container}>
  
@@ -27,7 +27,7 @@ const RegisterScreen = (props) => {
           style={styles.TextInput}
           placeholder="First Name"
           placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
+          onChangeText={(email) => setEmail(email.target.value)}
         />
       </View> 
 
@@ -36,7 +36,7 @@ const RegisterScreen = (props) => {
           style={styles.TextInput}
           placeholder="Email."
           placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
+          onChangeText={(email) => setEmail(email.target.value)}
         />
       </View> 
 
@@ -45,7 +45,7 @@ const RegisterScreen = (props) => {
           style={styles.TextInput}
           placeholder="Email."
           placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
+          onChangeText={(email) => setEmail(email.target.value)}
         />
       </View>
  
@@ -55,7 +55,7 @@ const RegisterScreen = (props) => {
           placeholder="Password."
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
+          onChangeText={(password) => setPassword(password.target.value)}
         />
       </View>
  

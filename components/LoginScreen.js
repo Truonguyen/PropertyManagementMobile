@@ -90,7 +90,7 @@ import {StackNavigator} from 'react-navigation';
 
  
 const {height, width} = Dimensions.get("window"); 
-const App = (props) => {
+const App = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -103,7 +103,7 @@ const App = (props) => {
           style={styles.TextInput}
           placeholder="Email."
           placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
+          onChangeText={(email) => setEmail(email.target.value)}
         />
       </View>
  
@@ -113,7 +113,7 @@ const App = (props) => {
           placeholder="Password."
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
+          onChangeText={(password) => setPassword(password.target.value)}
         />
       </View>
  
