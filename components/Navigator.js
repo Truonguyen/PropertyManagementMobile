@@ -8,7 +8,8 @@ import Icon from "react-native-vector-icons/Ionicons";
 import SearchScreen from "./SearchScreen";
 import SaveScreen from "./SaveScreen";
 import LoginScreen from "./LoginScreen"; 
-import HomeScreen from "./HomeScreen"; 
+import HomeScreen from "./HomeScreen";  
+import RegisterScreen from "./RegisterScreen"; 
 
 const TabNavigator = createMaterialBottomTabNavigator(
   {
