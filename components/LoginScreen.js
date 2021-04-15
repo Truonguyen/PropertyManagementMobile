@@ -90,7 +90,7 @@ import {StackNavigator} from 'react-navigation';
 
  
 const {height, width} = Dimensions.get("window"); 
-const App = () => {
+const App = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
