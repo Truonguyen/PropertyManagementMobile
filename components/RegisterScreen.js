@@ -10,11 +10,7 @@ import {
   TouchableOpacity, 
   Dimensions, 
 } from "react-native"; 
-import {StackNavigator} from 'react-navigation';   
-import {NavigationContainer} from '@react-navigation/native'; 
 
-
- 
 const {height, width} = Dimensions.get("window"); 
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
@@ -72,13 +68,14 @@ const RegisterScreen = (props) => {
       </TouchableOpacity> 
 
       <TouchableOpacity 
-      onPress={() => this.props.navigation.navigate('register')}>
+         onPress={() => this.props.navigation.navigate('register')}>
         <Text style={styles.registerButton}>New User? Register Here</Text>
       </TouchableOpacity>
     </View>
   );
 }
- 
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -119,4 +116,6 @@ const styles = StyleSheet.create({
     marginTop: 40,
     backgroundColor: "#8da9c4",
   },
-});
+}); 
+
+export default RegisterScreen;

@@ -90,7 +90,7 @@ import {StackNavigator} from 'react-navigation';
 
  
 const {height, width} = Dimensions.get("window"); 
-export default function App() {
+const App = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -126,7 +126,7 @@ export default function App() {
       </TouchableOpacity> 
 
       <TouchableOpacity 
-      onPress={() => this.props.navigation.navigate('RegisterScreen')}>
+           onPress={() => navigation.navigate('SignUpScreen')}>
         <Text style={styles.registerButton}>New User? Register Here</Text>
       </TouchableOpacity>
     </View>
@@ -174,3 +174,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#8da9c4",
   },
 });
+
+export default App; 
