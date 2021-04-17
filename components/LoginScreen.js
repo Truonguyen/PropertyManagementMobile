@@ -87,6 +87,7 @@ import {
 } from "react-native";
 import LoginComponent from "./LoginComponents";
 import Profile from "./Profile";
+import { StackNavigator } from "react-navigation";
 
 export default function App() {
   const [user, setUser] = useState(false);
@@ -96,7 +97,7 @@ export default function App() {
 
   const login = () => {
     //console.log("hello");
-    fetch("http://192.168.0.2:8080/Users/login", {
+    fetch("http://localhost:8080/Users/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -141,35 +142,35 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  inputView: {
-    backgroundColor: "#A4A4A7",
-    borderRadius: 30,
-    width: "70%",
-    height: 45,
-    marginBottom: 20,
+  // inputView: {
+  //   backgroundColor: "#A4A4A7",
+  //   borderRadius: 30,
+  //   width: width * 0.75,
+  //   height: 45,
+  //   marginBottom: 20,
 
-    alignItems: "center",
-  },
+  //   alignItems: "center",
+  // },
 
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
-  },
+  // TextInput: {
+  //   height: 50,
+  //   flex: 1,
+  //   padding: 10,
+  //   marginLeft: 20,
+  // },
 
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
-  },
+  // forgot_button: {
+  //   height: 30,
+  //   marginBottom: 30,
+  // },
 
-  loginBtn: {
-    width: "80%",
-    borderRadius: 25,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "#8da9c4",
-  },
+  // loginBtn: {
+  //   width: width * 0.4,
+  //   borderRadius: 25,
+  //   height: 50,
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   marginTop: 40,
+  //   backgroundColor: "#8da9c4",
+  // },
 });
