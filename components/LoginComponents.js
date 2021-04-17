@@ -58,7 +58,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "center", 
+    alignSelf: "center", 
+    alignContent: "center"
   },
 
   inputView: {
@@ -67,7 +69,6 @@ const styles = StyleSheet.create({
     width: width * 0.75,
     height: 45,
     marginBottom: 20,
-
     alignItems: "center",
   },
 
@@ -75,12 +76,21 @@ const styles = StyleSheet.create({
     height: 50,
     flex: 1,
     padding: 10,
-    marginLeft: 20,
+    marginLeft: 20, 
+    alignItems: "center",
+    justifyContent: "center", 
+    alignSelf: "center", 
+    alignContent: "center"
+   
   },
 
   forgot_button: {
     height: 30,
     marginBottom: 30,
+   // alignItems: "center",
+    // justifyContent: "center", 
+    alignSelf: "center", 
+    //alignContent: "center"
   },
 
   loginBtn: {
@@ -90,6 +100,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: "#8da9c4",
+    backgroundColor: "#8da9c4",  
+    alignContent: "center",
+    alignSelf: "center"
+
   },
 });
