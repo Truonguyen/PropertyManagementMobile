@@ -2,13 +2,16 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   StyleSheet,
-  Text,
+  Text, 
+  Dimensions,
   View,
   Image,
   TextInput,
   Button,
-  TouchableOpacity,
+  TouchableOpacity, 
 } from "react-native";
+
+const { height, width } = Dimensions.get("window");
 
 const LoginComponent = (props) => {
   const [email, setEmail] = useState("");
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
   inputView: {
     backgroundColor: "#A4A4A7",
     borderRadius: 30,
-    width: "70%",
+    width: width * 0.75,
     height: 45,
     marginBottom: 20,
 
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
   },
 
   loginBtn: {
-    width: "80%",
+    width: width * 0.4,
     borderRadius: 25,
     height: 50,
     alignItems: "center",
