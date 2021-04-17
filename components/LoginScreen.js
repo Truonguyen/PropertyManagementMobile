@@ -13,8 +13,8 @@
 //   const [loading, setLoading] = React.useState(false);
 //   const [error, setError] = React.useState("");
 
-//   return ( 
-//     <Auth container> 
+//   return (
+//     <Auth container>
 //       <Header>This is login screen</Header>
 //       <Input
 //         style={styles.input}
@@ -33,7 +33,7 @@
 
 //        <FilledButton
 //         title={"Login"}
-//         style={styles.loginButton} 
+//         style={styles.loginButton}
 //         // onPress={async () => {
 //         //   try {
 //         //     setLoading(true);
@@ -41,10 +41,10 @@
 //         //   } catch (e) {
 //         //     setError(e.message);
 //         //     setLoading(false);
-//         //   } 
-//         // }} 
-        
-//       /> 
+//         //   }
+//         // }}
+
+//       />
 //     </Auth>
 //   );
 // };
@@ -85,53 +85,61 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
- 
+import LoginComponent from "./LoginComponents";
+import Profile from "./Profile";
+
 export default function App() {
+  const [user, setUser] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- 
+  const [jwt, setJWT] = useState("");
+
+  const login = () => {
+    //console.log("hello");
+    fetch("http://192.168.0.2:8080/Users/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Email: email,
+        Password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson.JWT);
+        setJWT(responseJson.JWT);
+        setUser(!user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <View style={styles.container}>
- 
-      <StatusBar style="auto" />
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
+      {user ? (
+        <Profile />
+      ) : (
+        <LoginComponent
+          checkUser={login}
+          setEmail={setEmail}
+          setPassword={setPassword}
         />
-      </View>
- 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#003f5c"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
-        />
-      </View>
- 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
-      </TouchableOpacity>
- 
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity>
+      )}
     </View>
   );
 }
- 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center", 
+    justifyContent: "center",
   },
- 
 
   inputView: {
     backgroundColor: "#A4A4A7",
@@ -139,22 +147,22 @@ const styles = StyleSheet.create({
     width: "70%",
     height: 45,
     marginBottom: 20,
- 
+
     alignItems: "center",
   },
- 
+
   TextInput: {
     height: 50,
     flex: 1,
     padding: 10,
     marginLeft: 20,
   },
- 
+
   forgot_button: {
     height: 30,
     marginBottom: 30,
   },
- 
+
   loginBtn: {
     width: "80%",
     borderRadius: 25,

@@ -7,8 +7,8 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 import SearchScreen from "./SearchScreen";
 import SaveScreen from "./SaveScreen";
-import LoginScreen from "./LoginScreen"; 
-import HomeScreen from "./HomeScreen"; 
+import LoginScreen from "./LoginScreen";
+import HomeScreen from "./HomeScreen";
 
 const TabNavigator = createMaterialBottomTabNavigator(
   {
@@ -22,7 +22,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
           </View>
         ),
       },
-    }, 
+    },
 
     Search: {
       screen: SearchScreen,
@@ -35,8 +35,8 @@ const TabNavigator = createMaterialBottomTabNavigator(
               size={25}
               name={"ios-search"}
             />
-          </View> 
-        ), 
+          </View>
+        ),
       },
     },
 
