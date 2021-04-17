@@ -13,10 +13,10 @@ import {
 
 const { height, width } = Dimensions.get("window");
 
-const LoginComponent = (props) => {
+const RegisterComponent = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //console.log(props);
+  //console.log(props); 
 
   return (
     <View>
@@ -49,13 +49,13 @@ const LoginComponent = (props) => {
       </TouchableOpacity> 
 
       <TouchableOpacity> 
-        <Text style = {styles.registerButton}>New user? Register here</Text>
+        <Text sytle = {styles.registerButton}>New user? Register here</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default LoginComponent;
+export default RegisterComponent;
 
 const styles = StyleSheet.create({
   container: {
