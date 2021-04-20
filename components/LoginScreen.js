@@ -41,7 +41,7 @@ export default function App() {
         console.log(responseJson.JWT);
         setJWT(responseJson.JWT);
         setUser(!user);
-        setRegister({registerPage : false});
+        setRegisterPage(registerPage => !registerPage); 
       })
       .catch((error) => {
         console.error(error);
@@ -73,15 +73,15 @@ export default function App() {
       });
   }; 
 
-  const setRegisterTrue = () => {
-    setRegisterPage({registerPage : true});
-  } 
-
   const toggleRegister = () => {
     setRegisterPage(registerPage => !registerPage); 
-    console.log("hello there!");
-    console.log({registerPage}) 
+  
   } 
+
+  const toggleUser = () => {
+    setUser(user => !user);  
+    console.log("Hello there")
+  }
 
 
     return (
@@ -89,7 +89,9 @@ export default function App() {
       {(() => {
         if (user && !registerPage) {
           return (
-            <Profile/>
+            <Profile
+            
+            />
           )
         } 
         else if (!user && registerPage) {

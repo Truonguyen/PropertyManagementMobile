@@ -72,7 +72,11 @@ const Profile = (props) => {
         >
           {/* <Feather name="phone-call" size={24} color="white" /> */}
           {/* <Text>Contact</Text> */}
-        </TouchableOpacity>
+        </TouchableOpacity> 
+
+          <TouchableOpacity onPress={props.checkRegister} style={styles.button}>
+        <Text style = {styles.registerButton}>Back</Text>
+      </TouchableOpacity> 
       </View>
     </View>
   );

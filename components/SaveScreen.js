@@ -55,7 +55,7 @@ const SaveScreen = (props) => {
           onPress={() => console.log("Setting")}
         >
           <AntDesign name="setting" size={24} color="white" />
-          <Text style={{ color: "white" }}>Setting</Text>
+          <Text style={{ color: "white" }}>Settings</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -72,7 +72,9 @@ const SaveScreen = (props) => {
         >
           {/* <Feather name="phone-call" size={24} color="white" /> */}
           {/* <Text>Contact</Text> */}
-        </TouchableOpacity>
+        </TouchableOpacity> 
+
+    
       </View>
     </View>
   );
