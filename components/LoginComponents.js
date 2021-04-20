@@ -48,7 +48,7 @@ const LoginComponent = (props) => {
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity> 
 
-      <TouchableOpacity onPress={props.goToRegister} style={styles.registerButton}>
+      <TouchableOpacity onPress={props.checkRegister} style={styles.registerButton}>
         <Text style = {styles.registerButton}>New user? Register here</Text>
       </TouchableOpacity>
     </View>

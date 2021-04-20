@@ -62,9 +62,13 @@ const RegisterComponent = (props) => {
         />
       </View>
 
-      <TouchableOpacity onPress={props.RegisterComponent} style={styles.loginBtn}>
+      <TouchableOpacity onPress={props.checkEmail} style={styles.loginBtn}>
         <Text style={styles.loginText}>Register</Text>
-      </TouchableOpacity> 
+      </TouchableOpacity>  
+    
+      <TouchableOpacity onPress={props.checkRegister} style={styles.loginBtn}>
+        <Text style = {styles.registerButton}>Back</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -111,10 +115,8 @@ const styles = StyleSheet.create({
   forgot_button: {
     height: 30,
     marginBottom: 30,
-   // alignItems: "center",
-    // justifyContent: "center", 
     alignSelf: "center", 
-    //alignContent: "center"
+  
   },
 
   loginBtn: {
