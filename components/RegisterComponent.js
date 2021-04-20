@@ -14,8 +14,10 @@ import {
 const { height, width } = Dimensions.get("window");
 
 const RegisterComponent = (props) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState(""); 
+    const [lastName, setLastName] = useState(""); 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState(""); 
   //console.log(props); 
 
   return (
@@ -24,11 +26,31 @@ const RegisterComponent = (props) => {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Email."
+          placeholder="First Name"
           placeholderTextColor="#003f5c"
-          onChangeText={(email) => props.setEmail(email)}
+          onChangeText={(firstName) => props.setFirstName(firstName)}
         />
       </View>
+
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Last Name"
+          placeholderTextColor="#003f5c"
+          secureTextEntry={true}
+          onChangeText={(lastName) => props.setLastName(lastName)}
+        />
+      </View> 
+
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Email"
+          placeholderTextColor="#003f5c"
+          secureTextEntry={true}
+          onChangeText={(email) => props.setEmail(email)}
+        />
+      </View> 
 
       <View style={styles.inputView}>
         <TextInput
@@ -40,17 +62,9 @@ const RegisterComponent = (props) => {
         />
       </View>
 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={props.checkUser} style={styles.loginBtn}>
-        <Text style={styles.loginText}>LOGIN</Text>
+      <TouchableOpacity onPress={props.RegisterComponent} style={styles.loginBtn}>
+        <Text style={styles.loginText}>Register</Text>
       </TouchableOpacity> 
-
-      <TouchableOpacity> 
-        <Text sytle = {styles.registerButton}>New user? Register here</Text>
-      </TouchableOpacity>
     </View>
   );
 };

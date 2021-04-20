@@ -10,70 +10,54 @@ import {
   TouchableOpacity, 
   Dimensions, 
 } from "react-native"; 
+import RegisterComponent from "./RegisterComponent"; 
 
 const {height, width} = Dimensions.get("window"); 
 
-const RegisterScreen = (props) => {
+export default function App () { 
+  const [firstName, setFirstName] = useState(""); 
+  const [lastName, setLastName] = useState(""); 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(""); 
+  const [jwt, setJWT] = useState("");
 
-  return (
+  const test = () => { 
+    fetch("http://localhost:8080/Users/login", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Email: email,
+        Password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson.JWT);
+        setJWT(responseJson.JWT);
+        setUser(!user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  return ( 
     <View style={styles.container}>
- 
-      <StatusBar style="auto" />
-      
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="First Name"
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email.target.value)}
+      {
+        <RegisterComponent
+          checkEmail={test}
+          setEmail={setEmail}
+          setPassword={setPassword}
         />
-      </View> 
-
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email.target.value)}
-        />
-      </View> 
-
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email.target.value)}
-        />
-      </View>
- 
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#003f5c"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password.target.value)}
-        />
-      </View>
- 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
-      </TouchableOpacity>
- 
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity> 
-
-      <TouchableOpacity 
-         onPress={() => this.props.navigation.navigate('register')}>
-        <Text style={styles.registerButton}>New User? Register Here</Text>
-      </TouchableOpacity>
+      }
     </View>
   );
 }
+  
+
 
 
 const styles = StyleSheet.create({
@@ -82,40 +66,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center", 
-  },
- 
-
-  inputView: {
-    backgroundColor: "#A4A4A7",
-    borderRadius: 30,
-    width: width * 0.75,
-    height: 45,
-    marginBottom: 20,
- 
-    alignItems: "center",
-  },
- 
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
-  },
- 
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
-  },
- 
-  loginBtn: {
-    width: width * 0.4,
-    borderRadius: 25,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "#8da9c4",
-  },
+  }
 }); 
-
-export default RegisterScreen;
