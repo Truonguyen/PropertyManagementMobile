@@ -37,7 +37,6 @@ const RegisterComponent = (props) => {
           style={styles.TextInput}
           placeholder="Last Name"
           placeholderTextColor="#003f5c"
-          secureTextEntry={true}
           onChangeText={(lastName) => props.setLastName(lastName)}
         />
       </View> 
@@ -47,7 +46,6 @@ const RegisterComponent = (props) => {
           style={styles.TextInput}
           placeholder="Email"
           placeholderTextColor="#003f5c"
-          secureTextEntry={true}
           onChangeText={(email) => props.setEmail(email)}
         />
       </View> 

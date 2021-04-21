@@ -19,11 +19,12 @@ const images = [
 
 const HomeScreen = (props) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image source={require("../assets/JMHP.png")} style={styles.image} />
-      </View>
-      <View style={styles.slider}>
+    <View style={styles.container}> 
+    <View style={styles.header}>
+     <Image source={require("../assets/logo.png")} style={styles.image} />
+    </View>
+      <View style={styles.slider}> 
+     
         <Slider images={images} />
         <Text style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -33,6 +34,9 @@ const HomeScreen = (props) => {
           reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
+        </Text> 
+        <Text style={styles.info}> 
+          Jack Mobile Home Park
         </Text>
       </View>
     </View>
@@ -42,39 +46,44 @@ const HomeScreen = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0B2545",
+    backgroundColor: "#8DA9C4", 
+
   },
 
   slider: {
-    flex: 1.7 * height,
-    backgroundColor: "#8DA9C4",
+    flex: 1.8 * height,
+    backgroundColor: "#0B2545",
     borderTopLeftRadius: 10,
-    borderTopRightRadius: 15,
+    borderTopRightRadius: 15, 
+    borderBottomRightRadius: 100000
   },
 
   text: {
-    marginTop: 50,
-  },
+    marginTop: 50, 
+    color: "white"
+  }, 
 
-  image: {
-    alignContent: "center",
-    justifyContent: "center",
+  info: { 
+    color: "white", 
+    marginTop: 100, 
+    alignSelf: "center"
+
+  }, 
+
+  image: { 
+    flex: 0.41 * height, 
     alignSelf: "center",
-    alignItems: "center",
-    width: 0.99 * width,
-    margin: 0.05 * height,
-    backgroundColor: "white",
-    borderBottomRightRadius: 40,
-    borderTopLeftRadius: 90,
-    borderTopRightRadius: 90,
+    alignItems: "flex-end",
+    width: 1.2 * width,
+    
   },
   header: {
     backgroundColor: "white",
     flex: 0.51 * height,
-    alignContent: "center",
+    alignContent: "flex-start",
     alignSelf: "center",
-    borderBottomRightRadius: 140,
-    borderTopLeftRadius: 190,
+    borderBottomRightRadius: 1400,
+    borderTopLeftRadius: 26 * 10e+12,
   },
 });
 

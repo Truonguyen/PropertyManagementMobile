@@ -99,7 +99,12 @@ export default function App() {
             <RegisterComponent 
 
               checkRegister = {toggleRegister}
-      
+              checkUser={login}  
+              checkRegister = {toggleRegister} 
+              setFirstName = {setFirstName} 
+              setLastName = {setLastName}
+              setEmail={setEmail}
+              setPassword={setPassword} 
             />
 
           )
