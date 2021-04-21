@@ -76,7 +76,8 @@ const Profile = (props) => {
 
           <TouchableOpacity onPress={props.checkRegister} style={styles.button}>
         <Text style = {styles.registerButton}>Back</Text>
-      </TouchableOpacity> 
+      </TouchableOpacity>  
+      
       </View>
     </View>
   );

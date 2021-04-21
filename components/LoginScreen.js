@@ -131,12 +131,3 @@ const styles = StyleSheet.create({
 
 });
 
-  {/* {user?  ( <Profile />) : (
-          <LoginComponent
-            checkUser={login}
-            setEmail={setEmail}
-            setPassword={setPassword}
-            goToRegister={register}
-          />
-        )
-      } */}
