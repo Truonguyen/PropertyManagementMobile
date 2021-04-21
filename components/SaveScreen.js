@@ -39,7 +39,6 @@ const SaveScreen = (props) => {
           marginBottom: 15,
         }}
       />
-
       {/* icons documentation: https://docs.expo.io/guides/icons/ */}
       <View style={styles.buttons}>
         <TouchableOpacity
@@ -72,9 +71,7 @@ const SaveScreen = (props) => {
         >
           {/* <Feather name="phone-call" size={24} color="white" /> */}
           {/* <Text>Contact</Text> */}
-        </TouchableOpacity> 
-
-    
+        </TouchableOpacity>
       </View>
     </View>
   );

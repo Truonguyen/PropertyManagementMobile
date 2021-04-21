@@ -49,7 +49,6 @@ const Profile = (props) => {
           <Entypo name="tools" size={24} color="white" />
           <Text style={{ color: "white" }}>Maintenance</Text>
         </TouchableOpacity>
-
         <TouchableOpacity
           style={styles.button}
           onPress={() => console.log("Setting")}
@@ -57,7 +56,6 @@ const Profile = (props) => {
           <AntDesign name="setting" size={24} color="white" />
           <Text style={{ color: "white" }}>Setting</Text>
         </TouchableOpacity>
-
         <TouchableOpacity
           style={styles.button}
           onPress={() => console.log("Contact")}
@@ -65,19 +63,16 @@ const Profile = (props) => {
           <Feather name="phone-call" size={24} color="white" />
           <Text style={{ color: "white" }}>Contact</Text>
         </TouchableOpacity>
-
         <TouchableOpacity
           style={styles.button}
           onPress={() => console.log("Empty")}
         >
           {/* <Feather name="phone-call" size={24} color="white" /> */}
           {/* <Text>Contact</Text> */}
-        </TouchableOpacity> 
-
-          <TouchableOpacity onPress={props.checkRegister} style={styles.button}>
-        <Text style = {styles.registerButton}>Back</Text>
-      </TouchableOpacity>  
-      
+        </TouchableOpacity>
+        <TouchableOpacity onPress={props.checkRegister} style={styles.button}>
+          <Text style={styles.registerButton}>Back</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

@@ -12,20 +12,19 @@ import {
 import LoginComponent from "./LoginComponents";
 import Profile from "./Profile";
 import RegisterComponent from "./RegisterComponent";
-import { StackNavigator } from "react-navigation"; 
 
-export default function App() { 
-  const [firstName, setFirstName] = useState(""); 
-  const [lastName, setLastName] = useState(""); 
+export default function App() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [user, setUser] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [jwt, setJWT] = useState("");
   const [registerPage, setRegisterPage] = useState(false);
-  
+
   const login = () => {
     //console.log("hello");
-    fetch("http://192.168.0.118:8080/Users/login", {
+    fetch("http://192.168.0.3:8080/Users/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -41,23 +40,23 @@ export default function App() {
         console.log(responseJson.JWT);
         setJWT(responseJson.JWT);
         setUser(!user);
-        setRegisterPage(registerPage => !registerPage); 
+        setRegisterPage(false);
       })
       .catch((error) => {
         console.error(error);
       });
-  }; 
+  };
 
-  const register = () => { 
-    fetch("http://192.168.0.118:8080/Users/register", {
+  const register = () => {
+    fetch("http://192.168.0.3:8080/Users/register", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        FirstName : firstName,
-        LastName : lastName,
+        FirstName: firstName,
+        LastName: lastName,
         Email: email,
         Password: password,
       }),
@@ -71,60 +70,47 @@ export default function App() {
       .catch((error) => {
         console.error(error);
       });
-  }; 
+  };
 
   const toggleRegister = () => {
-    setRegisterPage(registerPage => !registerPage); 
-  
-  } 
+    setRegisterPage(!registerPage);
+  };
 
   const toggleUser = () => {
-    setUser(user => !user);  
-    console.log("Hello there")
-  }
+    setUser((user) => !user);
+  };
 
-
-    return (
-      <View style={styles.container}>
+  return (
+    <View style={styles.container}>
       {(() => {
         if (user && !registerPage) {
+          return <Profile checkRegister={toggleUser} />;
+        } else if (!user && registerPage) {
           return (
-            <Profile
-            
-            />
-          )
-        } 
-        else if (!user && registerPage) {
-          return (
-            <RegisterComponent 
-
-              checkRegister = {toggleRegister}
-              checkUser={login}  
-              checkRegister = {toggleRegister} 
-              setFirstName = {setFirstName} 
-              setLastName = {setLastName}
+            <RegisterComponent
+              checkRegister={toggleRegister}
+              checkUser={login}
+              checkRegister={toggleRegister}
+              setFirstName={setFirstName}
+              setLastName={setLastName}
               setEmail={setEmail}
-              setPassword={setPassword} 
+              setPassword={setPassword}
             />
-
-          )
+          );
         } else if (!user && !registerPage) {
           return (
-            <LoginComponent 
-            checkUser={login}  
-            checkRegister = {toggleRegister}
-            setEmail={setEmail}
-            setPassword={setPassword} 
+            <LoginComponent
+              checkUser={login}
+              checkRegister={toggleRegister}
+              setEmail={setEmail}
+              setPassword={setPassword}
             />
-          )
+          );
         }
-      })() 
-      } 
-  
+      })()}
     </View>
   );
-}; 
-
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -133,6 +119,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
 });
-
