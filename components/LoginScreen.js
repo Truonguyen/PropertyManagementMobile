@@ -48,48 +48,48 @@ export default function App() {
       });
   };
 
-  // const register = () => {
-  //   axios
-  //     .post("http://192.168.0.3:8080/Users/register", {
-  //       Email: email,
-  //       Password: password,
-  //       FirstName: firstName,
-  //       LastName: lastName,
-  //     })
-  //     .then((response) => {
-  //       console.log(response);
-  //       console.log("pineapple");
-  //     })
-  //     .catch((error) => console.log(error));
+  const register = () => {
+    axios
+      .post("http://192.168.0.3:8080/Users/register", {
+        Email: email,
+        Password: password,
+        FirstName: firstName,
+        LastName: lastName,
+      })
+      .then((response) => {
+        console.log(response);
+        console.log("pineapple");
+      })
+      .catch((error) => console.log(error));
 
-  //   //   fetch("http://192.168.0.118:8080/Users/register", {
-  //   //     method: "POST",
-  //   //     headers: {
-  //   //       Accept: "application/json",
-  //   //       "Content-Type": "application/json",
-  //   //     },
-  //   //     body: JSON.stringify({
-  //   //       Email: email,
-  //   //       Password: password,
-  //   //       FirstName: firstName,
-  //   //       LastName: lastName
+    //   fetch("http://192.168.0.118:8080/Users/register", {
+    //     method: "POST",
+    //     headers: {
+    //       Accept: "application/json",
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       Email: email,
+    //       Password: password,
+    //       FirstName: firstName,
+    //       LastName: lastName
 
-  //   //     }),
-  //   //   })
-  //   //     .then((response) => response.json())
-  //   //     .then((responseJson) => {
-  //   //       console.log(responseJson.JWT);
-  //   //       console.log("Pineapple")
-  //   //       setUser(true);
-  //   //     })
-  //   //     .catch((error) => {
-  //   //       console.log(email)
-  //   //       console.log(password)
-  //   //       console.log(firstName)
-  //   //       console.log(lastName)
-  //   //       console.error(error);
-  //   //     });
-  // };
+    //     }),
+    //   })
+    //     .then((response) => response.json())
+    //     .then((responseJson) => {
+    //       console.log(responseJson.JWT);
+    //       console.log("Pineapple")
+    //       setUser(true);
+    //     })
+    //     .catch((error) => {
+    //       console.log(email)
+    //       console.log(password)
+    //       console.log(firstName)
+    //       console.log(lastName)
+    //       console.error(error);
+    //     });
+  };
 
   // axios.post();
 
@@ -105,11 +105,11 @@ export default function App() {
     <View style={styles.container}>
       {(() => {
         if (user && !registerPage) {
-          return <Profile checkRegister={toggleUser} />;
+          return <Profile checkRegister={toggleUser} userKey={jwt} />;
         } else if (!user && registerPage) {
           return (
             <RegisterComponent
-              // doubleCheck={register}
+              doubleCheck={register}
               setEmail={setEmail}
               setPassword={setPassword}
               setFirstName={setFirstName}

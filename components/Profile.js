@@ -44,7 +44,7 @@ const Profile = (props) => {
         setlName(responseJson.LastName);
         setEmail(responseJson.Email);
         setJWT(responseJson.JWT);
-        console.log(jwt);
+        //console.log(jwt);
       })
       .catch((error) => {
         console.error(error);
@@ -52,8 +52,9 @@ const Profile = (props) => {
   };
 
   useEffect(() => {
-    console.log("hello");
+    //setJWT(props.userKey);
     getProfile();
+    console.log("RELOAD PAGE jwt is " + jwt);
   }, []);
   return (
     <View style={styles.container}>
@@ -149,6 +150,7 @@ const Profile = (props) => {
             style={{ ...styles.modalToggle, ...styles.modalClose }}
             onPress={() => setSettingModal(false)}
           />
+          {console.log("passing to setting modal " + jwt)}
           <SettingForm
             updatefName={setfName}
             updatelName={setlName}

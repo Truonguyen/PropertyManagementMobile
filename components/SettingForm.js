@@ -17,7 +17,7 @@ const SettingForm = (props) => {
           console.log(values.first);
           console.log(values.last);
           console.log(values.password);
-          console.log(props.getJWT);
+          console.log("from setting form " + props.getJWT);
           fetch("http://192.168.0.3:8080/Users/edit", {
             method: "POST",
             headers: {
@@ -28,6 +28,7 @@ const SettingForm = (props) => {
               FirstName: values.first,
               LastName: values.last,
               Password: values.password,
+              JWT: props.getJWT,
             }),
           })
             .then((response) => response.json())
