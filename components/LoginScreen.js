@@ -8,8 +8,7 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
-} from "react-native"; 
-import axios from "axios"; 
+} from "react-native";
 import LoginComponent from "./LoginComponents";
 import Profile from "./Profile";
 import RegisterComponent from "./RegisterComponent";
@@ -25,7 +24,7 @@ export default function App() {
 
   const login = () => {
     //console.log("hello");
-    fetch("http://192.168.0.118:8080/Users/login", {
+    fetch("http://192.168.0.3:8080/Users/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -38,8 +37,8 @@ export default function App() {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log("HI there")
-        console.log(responseJson.JWT); 
+        console.log("HI there");
+        console.log(responseJson.JWT);
         setJWT(responseJson.JWT);
         setUser(true);
         setRegisterPage(false);
@@ -49,48 +48,50 @@ export default function App() {
       });
   };
 
-   const register = () => { 
-    axios.post('http://192.168.0.118:8080/Users/register', {
-      Email: email, 
-      Password: password,
-      FirstName: firstName,
-      LastName: lastName
-    })
-    .then((response) => {
-      console.log(response); 
-      console.log("pineapple")
-    } ).catch(error => console.log(error));
-  
-  //   fetch("http://192.168.0.118:8080/Users/register", {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ 
-  //       Email: email, 
+  // const register = () => {
+  //   axios
+  //     .post("http://192.168.0.3:8080/Users/register", {
+  //       Email: email,
   //       Password: password,
   //       FirstName: firstName,
-  //       LastName: lastName
-       
-  //     }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((responseJson) => {
-  //       console.log(responseJson.JWT);
-  //       console.log("Pineapple")
-  //       setUser(true);
+  //       LastName: lastName,
   //     })
-  //     .catch((error) => {
-  //       console.log(email) 
-  //       console.log(password) 
-  //       console.log(firstName) 
-  //       console.log(lastName)
-  //       console.error(error); 
-  //     });
-   }; 
+  //     .then((response) => {
+  //       console.log(response);
+  //       console.log("pineapple");
+  //     })
+  //     .catch((error) => console.log(error));
 
-  axios.post()
+  //   //   fetch("http://192.168.0.118:8080/Users/register", {
+  //   //     method: "POST",
+  //   //     headers: {
+  //   //       Accept: "application/json",
+  //   //       "Content-Type": "application/json",
+  //   //     },
+  //   //     body: JSON.stringify({
+  //   //       Email: email,
+  //   //       Password: password,
+  //   //       FirstName: firstName,
+  //   //       LastName: lastName
+
+  //   //     }),
+  //   //   })
+  //   //     .then((response) => response.json())
+  //   //     .then((responseJson) => {
+  //   //       console.log(responseJson.JWT);
+  //   //       console.log("Pineapple")
+  //   //       setUser(true);
+  //   //     })
+  //   //     .catch((error) => {
+  //   //       console.log(email)
+  //   //       console.log(password)
+  //   //       console.log(firstName)
+  //   //       console.log(lastName)
+  //   //       console.error(error);
+  //   //     });
+  // };
+
+  // axios.post();
 
   const toggleRegister = () => {
     setRegisterPage(!registerPage);
@@ -104,20 +105,16 @@ export default function App() {
     <View style={styles.container}>
       {(() => {
         if (user && !registerPage) {
-
           return <Profile checkRegister={toggleUser} />;
-        } 
-        else if (!user && registerPage) {
+        } else if (!user && registerPage) {
           return (
             <RegisterComponent
-             
-              doubleCheck={register}
+              // doubleCheck={register}
               setEmail={setEmail}
               setPassword={setPassword}
               setFirstName={setFirstName}
               setLastName={setLastName}
-              checkRegister={toggleRegister} 
-             
+              checkRegister={toggleRegister}
             />
           );
         } else if (!user && !registerPage) {
