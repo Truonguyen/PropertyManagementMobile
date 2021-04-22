@@ -6,7 +6,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View, 
+  SafeAreaView, 
 } from "react-native";
 import Slider from "./Slider";
 
@@ -19,13 +20,15 @@ const images = [
 
 const HomeScreen = (props) => {
   return (
-    <View style={styles.container}> 
-    <View style={styles.header}>
-     <Image source={require("../assets/logo.png")} style={styles.image} />
-    </View>
+    <SafeAreaView style={styles.container}> 
+    {/* <View style={styles.header}>
+     <Image source={require("../assets/logo2.png")} style={styles.image} />
+    </View> */}
       <View style={styles.slider}> 
-     
-        <Slider images={images} />
+      <View style={styles.header}>
+     <Image source={require("../assets/logo2.png")} style={styles.image} />
+    </View> 
+        <Slider images={images} /> 
         <Text style={styles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -39,19 +42,19 @@ const HomeScreen = (props) => {
           Jack Mobile Home Park
         </Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#8DA9C4", 
+    backgroundColor: "#8DA9C4",  
 
   },
 
   slider: {
-    flex: 1.8 * height,
+    flex: 1.4 * height,
     backgroundColor: "#0B2545",
     borderTopLeftRadius: 10,
     borderTopRightRadius: 15, 
@@ -71,19 +74,19 @@ const styles = StyleSheet.create({
   }, 
 
   image: { 
-    flex: 0.41 * height, 
-    alignSelf: "center",
-    alignItems: "flex-end",
-    width: 1.2 * width,
+    alignSelf: "flex-end",
+    alignItems: "flex-end" ,  
+    justifyContent: "flex-end", 
+    flex: 0.001 * height, 
+    width: 0.6 * height,  
     
   },
   header: {
     backgroundColor: "white",
-    flex: 0.51 * height,
-    alignContent: "flex-start",
-    alignSelf: "center",
-    borderBottomRightRadius: 1400,
-    borderTopLeftRadius: 26 * 10e+12,
+    flex: 0.45 * height,
+    alignContent: "center", 
+    justifyContent: "center"
+   
   },
 });
 
