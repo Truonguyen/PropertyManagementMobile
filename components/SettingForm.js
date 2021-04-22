@@ -6,35 +6,62 @@ const SettingForm = (props) => {
   return (
     <View style={globalStyles.container}>
       <Formik
-        initialValues={{ title: "", body: "", rating: "" }}
+        initialValues={{ first: "", last: "", password: "" }}
         // handleSubmit run onSubmit
         onSubmit={(values) => {
           console.log(values);
+          props.updatefName(values.first);
+          props.updatelName(values.last);
+          //props.updatePassword(values.password);
+
+          console.log(values.first);
+          console.log(values.last);
+          console.log(values.password);
+          console.log(props.getJWT);
+          fetch("http://192.168.0.3:8080/Users/edit", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              FirstName: values.first,
+              LastName: values.last,
+              Password: values.password,
+            }),
+          })
+            .then((response) => response.json())
+            .then((responseJson) => {
+              console.log("success");
+              props.updateJWT(responseJson.JWT);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
         }}
       >
         {(props) => (
           <View>
             <TextInput
               style={globalStyles.input}
-              placeholder="Review title"
-              onChangeText={props.handleChange("title")}
-              value={props.values.title}
+              placeholder="First Name"
+              onChangeText={props.handleChange("first")}
+              value={props.values.first}
             />
 
             <TextInput
               style={globalStyles.input}
               multiline
-              placeholder="Review details"
-              onChangeText={props.handleChange("body")}
-              value={props.values.body}
+              placeholder="Last Name"
+              onChangeText={props.handleChange("last")}
+              value={props.values.last}
             />
 
             <TextInput
               style={globalStyles.input}
-              placeholder="Rating (1 - 5)"
-              onChangeText={props.handleChange("rating")}
-              value={props.values.rating}
-              keyboardType="numeric"
+              placeholder="Password"
+              onChangeText={props.handleChange("password")}
+              value={props.values.password}
             />
 
             <Button

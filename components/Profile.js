@@ -21,6 +21,7 @@ const Profile = (props) => {
   const [contactModal, setContactModal] = useState(false);
 
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [fName, setfName] = useState("");
   const [lName, setlName] = useState("");
   const [jwt, setJWT] = useState(props.userKey);
@@ -42,10 +43,8 @@ const Profile = (props) => {
         setfName(responseJson.FirstName);
         setlName(responseJson.LastName);
         setEmail(responseJson.Email);
-
-        // setJWT(responseJson.JWT);
-        // setUser(true);
-        // setRegisterPage(false);
+        setJWT(responseJson.JWT);
+        console.log(jwt);
       })
       .catch((error) => {
         console.error(error);
@@ -53,7 +52,7 @@ const Profile = (props) => {
   };
 
   useEffect(() => {
-    console.log("hello there");
+    console.log("hello");
     getProfile();
   }, []);
   return (
@@ -140,6 +139,7 @@ const Profile = (props) => {
         </TouchableOpacity>
       </View>
       {/* MODALS ===================================================================================================== */}
+
       {/* SETTING MODAL */}
       <Modal visible={settingModal} animationType="slide">
         <View style={styles.modalContent}>
@@ -149,7 +149,12 @@ const Profile = (props) => {
             style={{ ...styles.modalToggle, ...styles.modalClose }}
             onPress={() => setSettingModal(false)}
           />
-          <SettingForm />
+          <SettingForm
+            updatefName={setfName}
+            updatelName={setlName}
+            getJWT={jwt}
+            updateJWT={setJWT}
+          />
         </View>
       </Modal>
 
