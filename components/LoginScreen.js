@@ -39,7 +39,7 @@ export default function App() {
       .then((responseJson) => {
         console.log(responseJson.JWT);
         setJWT(responseJson.JWT);
-        setUser(!user);
+        setUser(true);
         setRegisterPage(false);
       })
       .catch((error) => {
@@ -84,7 +84,7 @@ export default function App() {
     <View style={styles.container}>
       {(() => {
         if (user && !registerPage) {
-          return <Profile checkRegister={toggleUser} />;
+          return <Profile checkRegister={toggleUser} userKey={jwt} />;
         } else if (!user && registerPage) {
           return (
             <RegisterComponent
