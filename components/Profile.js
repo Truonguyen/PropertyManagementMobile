@@ -188,17 +188,18 @@ const styles = StyleSheet.create({
     backgroundColor: "lightgray",
   },
   deleteView: {
-    flexDirection: "column",
+    flexDirection: "column", 
+    alignItems: "center"
   },
   delete: {
     marginTop: 40,
     alignItems: "center",
     borderWidth: 1,
-    //borderRadius: 4,
+    borderRadius: 10,
     borderColor: "lightgray",
-    backgroundColor: "#1C2541",
+    backgroundColor: "#B22222",
     padding: 10,
-    // width: "50%",
+    width: "50%",
   },
   name: {
     fontSize: 20,
@@ -225,7 +226,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     //borderRadius: 4,
     borderColor: "lightgray",
-    backgroundColor: "#1C2541",
+    backgroundColor: "#0B2545",
     padding: 10,
     width: "50%",
     //marginRight: 10,

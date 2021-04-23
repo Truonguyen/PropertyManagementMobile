@@ -30,13 +30,23 @@ const ContactForm = (props) => {
 
         </View>  
 
-        <View style = {styles.parent2}> 
-          <Text> Name: John Cena</Text> 
-          <Text> Email: JohnCena123@gmail.com</Text>
-          <Text> Phone: 123-123-1234</Text> 
-        </View>
-          
-        </View>
+        <View style = {styles.parent2}>  
+        <Image source={require("../assets/kevin.png")} style={styles.image1} />
+        
+          <Text style = {styles.text}> 
+            Name: John Cena
+          </Text>  
+
+          <Text style = {styles.text}> 
+            Phone: 123-123-1234
+          </Text> 
+
+          <Text style = {styles.text}> 
+            Email: JohnCena123@gmail.com
+          </Text>
+
+        </View> 
+      </View>
     )};
 
 export default ContactForm;
@@ -56,19 +66,22 @@ const styles = StyleSheet.create({
 
   parent2:{ 
     flex : 0.5,  
-    flexDirection: "column"
+    flexDirection: "column",
+    alignItems: "center",
   },  
 
   image1: { 
-    width: 0.3 * height,  
-    height: 0.6 * width, 
+    width: 0.25 * height,  
+    height: 0.5 * width, 
     borderRadius: 20
 
 
-  }, 
+  },  
+
+  
 
   text: {
-    fontFamily: "serif", 
+    fontFamily: "notoserif", 
   }
 
 
