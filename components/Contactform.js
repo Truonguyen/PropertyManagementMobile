@@ -18,13 +18,13 @@ const ContactForm = (props) => {
         <Image source={require("../assets/tiffany.png")} style={styles.image1} />
           
           <Text style = {styles.text}> 
-            Name: John Cena
+            Name: Tiffany
           </Text>  
           <Text style = {styles.text}> 
-            Phone: 123-123-1234
+            Phone: 352-390-7495
           </Text> 
           <Text style = {styles.text}> 
-            Email: JohnCena123@gmail.com
+            Email: tsaikevin94@yahoo.com
           </Text>
     
 
@@ -34,15 +34,15 @@ const ContactForm = (props) => {
         <Image source={require("../assets/kevin.png")} style={styles.image1} />
         
           <Text style = {styles.text}> 
-            Name: John Cena
+            Name: Kevin
           </Text>  
 
           <Text style = {styles.text}> 
-            Phone: 123-123-1234
+            Phone: 352-200-4273
           </Text> 
 
           <Text style = {styles.text}> 
-            Email: JohnCena123@gmail.com
+            Email: kevin13560@yahoo.com.tw
           </Text>
 
         </View> 
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
   parent1: { 
     flex : 0.5,  
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "center", 
+    justifyContent: "flex-end", 
   },  
 
   parent2:{ 
@@ -73,7 +74,8 @@ const styles = StyleSheet.create({
   image1: { 
     width: 0.25 * height,  
     height: 0.5 * width, 
-    borderRadius: 20
+    borderRadius: 20 
+  
 
 
   },  
