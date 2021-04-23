@@ -24,7 +24,7 @@ export default function App() {
 
   const login = () => {
     //console.log("hello");
-    fetch("http://192.168.0.3:8080/Users/login", {
+    fetch("http://192.168.0.118:8080/Users/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -50,7 +50,7 @@ export default function App() {
 
   const register = () => {
     axios
-      .post("http://192.168.0.3:8080/Users/register", {
+      .post("http://192.168.0.118:8080/Users/register", {
         Email: email,
         Password: password,
         FirstName: firstName,

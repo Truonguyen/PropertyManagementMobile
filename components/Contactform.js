@@ -1,76 +1,76 @@
 import React from "react"; 
-import { StyleSheet, Button, TextInput, View, Text } from "react-native";
-import { Formik } from "formik";  
+import { 
+  StyleSheet, 
+  Dimensions, 
+  Image, 
+  View, 
+  Text } from "react-native"; 
 
-const ContactForm = (props) => {
+const { height, width } = Dimensions.get("window");
+
+
+const ContactForm = (props) => { 
+
     return ( 
+        <View style={styles.container}>  
 
-        <View style={globalStyles.container}>
-      <Formik
-        initialValues={{ title: "", body: "", rating: "" }}
-        // handleSubmit run onSubmit
-        onSubmit={(values) => {
-          console.log(values);
-        }}
-      >
-        {(props) => (
-          <View>
-            <TextInput
-              style={globalStyles.input}
-              placeholder="Review title"
-              onChangeText={props.handleChange("title")}
-              value={props.values.title}
-            />
+        <View style = {styles.parent1}>  
+        <Image source={require("../assets/tiffany.png")} style={styles.image1} />
+          
+          <Text style = {styles.text}> 
+            Name: John Cena
+          </Text>  
+          <Text style = {styles.text}> 
+            Phone: 123-123-1234
+          </Text> 
+          <Text style = {styles.text}> 
+            Email: JohnCena123@gmail.com
+          </Text>
+    
 
-            <TextInput
-              style={globalStyles.input}
-              multiline
-              placeholder="Review details"
-              onChangeText={props.handleChange("body")}
-              value={props.values.body}
-            />
+        </View>  
 
-            <TextInput
-              style={globalStyles.input}
-              placeholder="Rating (1 - 5)"
-              onChangeText={props.handleChange("rating")}
-              value={props.values.rating}
-              keyboardType="numeric"
-            />
-
-            <Button
-              color="maroon"
-              title="Submit"
-              onPress={props.handleSubmit}
-            />
-          </View>
-        )}
-      </Formik>
-    </View>
-  );
-};
+        <View style = {styles.parent2}> 
+          <Text> Name: John Cena</Text> 
+          <Text> Email: JohnCena123@gmail.com</Text>
+          <Text> Phone: 123-123-1234</Text> 
+        </View>
+          
+        </View>
+    )};
 
 export default ContactForm;
 
-export const globalStyles = StyleSheet.create({
-  titleText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#333",
-  },
-  paragraph: {
-    marginVertical: 8,
-    lineHeight: 20,
-  },
+const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 20,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    padding: 10,
-    fontSize: 18,
-    borderRadius: 6,
-  },
+    flex: 1, 
+    alignContent: "center", 
+    
+  },  
+
+  parent1: { 
+    flex : 0.5,  
+    flexDirection: "column",
+    alignItems: "center",
+  },  
+
+  parent2:{ 
+    flex : 0.5,  
+    flexDirection: "column"
+  },  
+
+  image1: { 
+    width: 0.3 * height,  
+    height: 0.6 * width, 
+    borderRadius: 20
+
+
+  }, 
+
+  text: {
+    fontFamily: "serif", 
+  }
+
+
 });   
+

@@ -14,7 +14,9 @@ import {
 } from "react-native";
 import { Entypo, AntDesign, Feather, MaterialIcons } from "@expo/vector-icons";
 import { Avatar } from "react-native-paper";
-import SettingForm from "./SettingForm";
+import SettingForm from "./SettingForm";  
+import ContactForm from "./ContactForm"
+
 
 const Profile = (props) => {
   const [settingModal, setSettingModal] = useState(false);
@@ -28,7 +30,7 @@ const Profile = (props) => {
 
   const getProfile = () => {
     //console.log("hello");
-    fetch("http://192.168.0.3:8080/Users/", {
+    fetch("http://192.168.0.118:8080/Users/", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -169,9 +171,7 @@ const Profile = (props) => {
             style={{ ...styles.modalToggle, ...styles.modalClose }}
             onPress={() => setContactModal(false)}
           />
-          <Text> Name: John Cena</Text>
-          <Text> Email: JohnCena123@gmail.com</Text>
-          <Text> Phone: 123-123-1234</Text>
+        <ContactForm/>
         </View>
       </Modal>
     </View>
