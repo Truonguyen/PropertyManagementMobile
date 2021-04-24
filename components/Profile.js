@@ -256,6 +256,7 @@ const styles = StyleSheet.create({
     marginBottom: 0,
   },
   modalContent: {
-    flex: 1,
+    flex: 1, 
+    backgroundColor: "#0B2545"
   },
 });

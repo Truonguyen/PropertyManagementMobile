@@ -14,12 +14,14 @@ const ContactForm = (props) => {
     return ( 
         <View style={styles.container}>  
 
-        <View style = {styles.parent1}>  
+        <View style = {styles.parent1}>   
+        <Text style = {styles.textContact}> 
+            Contact Tiffany 
+        </Text>
         <Image source={require("../assets/tiffany.png")} style={styles.image1} />
           
-          <Text style = {styles.text}> 
-            Name: Tiffany
-          </Text>  
+         
+        
           <Text style = {styles.text}> 
             Phone: 352-390-7495
           </Text> 
@@ -62,19 +64,27 @@ const styles = StyleSheet.create({
     flex : 0.5,  
     flexDirection: "column",
     alignItems: "center", 
-    justifyContent: "flex-end", 
+    justifyContent: "flex-end",  
+    backgroundColor: "white", 
+    borderBottomLeftRadius: 50, 
+     borderBottomRightRadius: 50, 
+     borderTopLeftRadius: 50, 
+     borderTopRightRadius: 50, 
+     borderEndColor : "blue" 
+     
   },  
 
   parent2:{ 
     flex : 0.5,  
     flexDirection: "column",
-    alignItems: "center",
+    alignItems: "center", 
+    justifyContent: "center"
   },  
 
   image1: { 
     width: 0.25 * height,  
     height: 0.5 * width, 
-    borderRadius: 20 
+    borderRadius: 20,
   
 
 
