@@ -184,11 +184,11 @@ const Profile = (props) => {
 
       {/* CONTACT MODAL */}
       <Modal visible={contactModal} animationType="slide">
-        <View style={styles.modalContactContent}>
+        <View style={styles.modalContent}>
           <MaterialIcons
             name="close"
             size={24}
-            style={{ ...styles.modalToggle, ...styles.modalClose }}
+            style={{ ...styles.modalContactToggle, ...styles.modalContactClose }}
             onPress={() => setContactModal(false)}
           />
           <ContactForm />
@@ -269,14 +269,33 @@ const styles = StyleSheet.create({
     borderColor: "#f2f2f2",
     padding: 10,
     borderRadius: 10,
-    alignSelf: "center",
-  },
+    alignSelf: "center", 
+  }, 
+  modalContactToggle: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: "#f2f2f2",
+    padding: 10,
+    borderRadius: 10,
+    alignSelf: "center", 
+    backgroundColor: "#B22222",
+  }, 
+
   modalClose: {
     marginTop: 20,
-    marginBottom: 0,
+    marginBottom: 0, 
+
+  }, 
+
+  modalContactClose: {
+    marginTop: 20,
+    marginBottom: 0, 
+    backgroundColor: "lightgray",
   },
   modalContent: {
     flex: 1,
-    backgroundColor: "#0B2545", 
+    backgroundColor: "#13315C", 
   },
 });

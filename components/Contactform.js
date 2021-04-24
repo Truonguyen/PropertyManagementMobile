@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Dimensions, Image, View, Text } from "react-native";
+import { StyleSheet, Dimensions, Linking,  Image, View, Text } from "react-native";
 
 const { height, width } = Dimensions.get("window");
 
@@ -9,21 +9,15 @@ const ContactForm = (props) => {
       <View style={styles.parent1}>
         <Text style={styles.textContact}>Contact Tiffany</Text>
         <Image
-          source={require("../assets/tiffany.png")}
-          style={styles.image1}
-        />
-
-        <Text style={styles.text}>Phone: 352-390-7495</Text>
+          source={require("../assets/tiffany.png")} style={styles.image}/>
+        <Text onPress={() => {Linking.openURL('tel:3523907495'); }}style={styles.text} style={styles.text}>Phone: 352-390-7495</Text>
         <Text style={styles.text}>Email: tsaikevin94@yahoo.com</Text>
       </View>
 
-      <View style={styles.parent2}>
-        <Image source={require("../assets/kevin.png")} style={styles.image1} />
-
-        <Text style={styles.text}>Name: Kevin</Text>
-
-        <Text style={styles.text}>Phone: 352-200-4273</Text>
-
+      <View style={styles.parent2}> 
+        <Text style={styles.textContact}> Contact Kevin</Text>  
+        <Image source={require("../assets/kevin.png")} style={styles.image} />
+        <Text onPress={() => {Linking.openURL('tel:3522004273'); }}style={styles.text}>Phone: 352-200-4273</Text>
         <Text style={styles.text}>Email: kevin13560@yahoo.com.tw</Text>
       </View>
     </View>
@@ -35,7 +29,7 @@ export default ContactForm;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignContent: "center",
+  
   },
 
   parent1: {
@@ -44,14 +38,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
-    borderBottomLeftRadius: 100,
-    borderBottomRightRadius: 100,
-    borderTopLeftRadius: 100,
-    borderTopRightRadius: 100,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     borderEndColor: "#0B2545",
-    borderRightWidth: 40,
-    borderLeftWidth: 40,
-    borderLeftColor: "#0B2545",
+    marginTop: 0.02 * width, 
+    borderLeftColor: "#0B2545",  
+    marginBottom: 0.03 * width, 
+    marginLeft: 0.09 * width, 
+    marginRight: 0.09 * width,  
   },
 
   parent2: {
@@ -60,18 +56,34 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
-    borderBottomLeftRadius: 90,
-    borderBottomRightRadius: 90,
-    borderTopLeftRadius: 100,
-    borderTopRightRadius: 100,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     borderEndColor: "#0B2545",
+    borderLeftColor: "#0B2545",  
+    marginBottom: 0.03 * width, 
+    marginLeft: 0.09 * width, 
+    marginRight: 0.09 * width,   
   },
 
-  image1: {
-    width: 0.35 * height,
+  image: {
+    width: 0.3 * height,
     height: 0.5 * width,
     borderRadius: 20,
-  },
+  }, 
+  
+  textContact: { 
+    marginBottom: 0.02 * width, 
+    fontWeight: "bold", 
+    fontSize: 25, 
+    color: "#0B2545"
+  }, 
 
-  text: {},
+  text: {
+    fontSize: 17, 
+    marginTop: 0.005 * width
+  }
+
+
 });

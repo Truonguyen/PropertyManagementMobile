@@ -21,7 +21,8 @@ const RegisterComponent = (props) => {
   //console.log(props); 
 
   return (
-    <View>
+    <View> 
+      <Text style ={styles.account}>Account Registration</Text>
       <StatusBar style="auto" />
       <View style={styles.inputView}>
         <TextInput
@@ -85,8 +86,8 @@ const styles = StyleSheet.create({
     alignContent: "center"
   },
 
-  inputView: {
-    backgroundColor: "#A4A4A7",
+  inputView: { 
+    backgroundColor: "#A4A4A7", 
     borderRadius: 30,
     width: width * 0.75,
     height: 45,
@@ -125,10 +126,18 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
+    marginTop: 0.04 * width, 
     backgroundColor: "#8da9c4",  
     alignContent: "center",
     alignSelf: "center"
 
-  },
+  }, 
+  account: {
+    marginBottom: 0.04 * width, 
+    alignSelf: "center",  
+    alignContent: "center", 
+    fontWeight: "bold", 
+    fontSize: 30, 
+    color: "#13315C"
+  }
 });
