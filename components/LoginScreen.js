@@ -22,9 +22,8 @@ export default function App() {
   const [jwt, setJWT] = useState("");
   const [registerPage, setRegisterPage] = useState(false);
   const [user, setUser] = useState(false);
-  const [status, setStatus] = useState(""); 
-  const [registerStatus, setRegisterStatus] = useState(""); 
-   
+  const [status, setStatus] = useState("");
+  const [registerStatus, setRegisterStatus] = useState("");
 
   const login = () => {
     // fetch("http:/192.168.0.2:8080/Users/login", {
@@ -52,7 +51,7 @@ export default function App() {
     else if (password.length == 0) setStatus("Password is empty. Try again");
     else {
       axios
-        .post("http://192.168.0.118:8080/Users/login", {
+        .post("http://192.168.0.2:8080/Users/login", {
           Email: email,
           Password: password,
         })
@@ -68,55 +67,60 @@ export default function App() {
     }
   };
 
-  const register = () => {  
-    if (firstName.length == 0 || lastName.length == 0 || email.length == 0 || password.length ==0) setRegisterStatus ("Please fill out all fields");   
+  const register = () => {
+    if (
+      firstName.length == 0 ||
+      lastName.length == 0 ||
+      email.length == 0 ||
+      password.length == 0
+    )
+      setRegisterStatus("Please fill out all fields");
     else {
-    console.log("hi");
-    axios
-      .post("https://group19-housingmanager.herokuapp.com/Users/register", {
-        Email: email,
-        Password: password,
-        FirstName: firstName,
-        LastName: lastName,
-      })
-      .then((response) => {
-        console.log(response);
-        console.log("pineapple");
-      })
-      .catch((error) => {
-        if (error.request.status == 400) setRegisterStatus("Email is already in use!");
-      });
-    } 
+      axios
+        .post("https://group19-housingmanager.herokuapp.com/Users/register", {
+          Email: email,
+          Password: password,
+          FirstName: firstName,
+          LastName: lastName,
+        })
+        .then((response) => {
+          console.log(response);
+          setRegisterStatus("Check email to verify account");
+        })
+        .catch((error) => {
+          if (error.request.status == 400)
+            setRegisterStatus("Email is already in use!");
+        });
+    }
   };
 
-    //   fetch("http://192.168.0.118:8080/Users/register", {
-    //     method: "POST",
-    //     headers: {
-    //       Accept: "application/json",
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       Email: email,
-    //       Password: password,
-    //       FirstName: firstName,
-    //       LastName: lastName
+  //   fetch("http://192.168.0.118:8080/Users/register", {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       Email: email,
+  //       Password: password,
+  //       FirstName: firstName,
+  //       LastName: lastName
 
-    //     }),
-    //   })
-    //     .then((response) => response.json())
-    //     .then((responseJson) => {
-    //       console.log(responseJson.JWT);
-    //       console.log("Pineapple")
-    //       setUser(true);
-    //     })
-    //     .catch((error) => {
-    //       console.log(email)
-    //       console.log(password)
-    //       console.log(firstName)
-    //       console.log(lastName)
-    //       console.error(error);
-    //     });
-  
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((responseJson) => {
+  //       console.log(responseJson.JWT);
+  //       console.log("Pineapple")
+  //       setUser(true);
+  //     })
+  //     .catch((error) => {
+  //       console.log(email)
+  //       console.log(password)
+  //       console.log(firstName)
+  //       console.log(lastName)
+  //       console.error(error);
+  //     });
 
   // axios.post();
 
@@ -124,27 +128,31 @@ export default function App() {
     setRegisterPage(!registerPage);
   };
 
-  const toggleUser = () => {
-    setUser(false);
-  };
-
   return (
     <View style={styles.container}>
       {(() => {
         if (user && !registerPage) {
-          return <Profile checkRegister={setUser} userKey={jwt} />;
+          return (
+            <Profile
+              checkRegister={setUser}
+              userKey={jwt}
+              resetEmail={setEmail}
+              resetPass={setEmail}
+              resetStatus={setStatus}
+            />
+          );
         } else if (!user && registerPage) {
-          return ( 
+          return (
             <View>
-            <RegisterComponent
-              checkEmail={register}
-              setEmail={setEmail}
-              setPassword={setPassword}
-              setFirstName={setFirstName}
-              setLastName={setLastName}
-              checkRegister={toggleRegister}
-            /> 
-            <Text style={styles.rstatusText}>{registerStatus}</Text> 
+              <RegisterComponent
+                checkEmail={register}
+                setEmail={setEmail}
+                setPassword={setPassword}
+                setFirstName={setFirstName}
+                setLastName={setLastName}
+                checkRegister={toggleRegister}
+              />
+              <Text style={styles.rstatusText}>{registerStatus}</Text>
             </View>
           );
         } else if (!user && !registerPage) {
@@ -177,7 +185,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
     textAlign: "center",
-  }, 
+  },
 
   rstatusText: {
     color: "#B22222",

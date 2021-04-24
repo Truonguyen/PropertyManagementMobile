@@ -16,6 +16,7 @@ import { Entypo, AntDesign, Feather, MaterialIcons } from "@expo/vector-icons";
 import { Avatar } from "react-native-paper";
 import SettingForm from "./SettingForm";
 import ContactForm from "./ContactForm";
+import axios from "axios";
 
 const Profile = (props) => {
   const [settingModal, setSettingModal] = useState(false);
@@ -29,7 +30,7 @@ const Profile = (props) => {
 
   const getProfile = () => {
     //console.log("hello");
-    fetch("http://192.168.0.118:8080/Users/", {
+    fetch("http://192.168.0.2:8080/Users/", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -54,22 +55,26 @@ const Profile = (props) => {
 
   const deleteAcc = () => {
     console.log("in delete" + jwt);
-    // axios
-    //   .post("http://192.168.0.2:8080/Users/delete", {
-    //     JWT: jwt,
-    //   })
-    //   .then((response) => {
-    //     console.log(response);
-    //     // setJWT(response.data.JWT);
-    //     // setUser(true);
-    //     // setRegisterPage(false);
-    //   })
-    //   .catch((error) => console.log(error));
+    axios
+      .post("http://192.168.0.2:8080/Users/delete", {
+        JWT: jwt,
+      })
+      .then((response) => {
+        console.log(response);
+        console.log("deleted==================");
+        // setJWT(response.data.JWT);
+        // setUser(true);
+        // setRegisterPage(false);
+      })
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
     //setJWT(props.userKey);
     getProfile();
+    props.resetEmail("");
+    props.resetPass("");
+    props.resetStatus("");
     console.log("RELOAD PAGE jwt is " + jwt);
   }, []);
   return (
@@ -153,7 +158,7 @@ const Profile = (props) => {
         <TouchableOpacity
           style={styles.delete}
           onPress={() => {
-            deleteAcc;
+            deleteAcc();
             props.checkRegister(false);
           }}
         >
@@ -296,6 +301,6 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     flex: 1,
-    backgroundColor: "#13315C", 
+    backgroundColor: "#0B2545",
   },
 });
