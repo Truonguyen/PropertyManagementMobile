@@ -1,0 +1,89 @@
+// vscode extension: humao.rest-client
+// just click "send request" above each URL
+
+// in the case of JWTs, login with a user and copy paste response JWT
+// JWTs are valid for an hour (subject to change) so you don't need to constantly login
+
+@hostname = http://localhost
+@port = 8080
+@host = {{hostname}}:{{port}}
+
+
+
+# Register
+POST {{host}}/Users/register
+Content-Type: application/json
+
+{
+    "Email" : "thechanman.potato@gmail.com",
+    "Password" : "123",
+    "FirstName" : "jj",
+    "LastName" : "chan"
+}
+
+###
+
+POST {{host}}/Users/verify/
+Content-Type: application/json
+
+{
+    "uniqueString" : "58211676"
+}
+
+### This is where we paste the verification code when logging in 1st time
+// (this is associated with a valid account)
+POST {{host}}/Users/login
+Content-Type: application/json
+
+{
+    "Email": "thechanman.potato@gmail.com",
+    "Password": "123"
+}
+
+###
+POST {{host}}/Users/
+Content-Type: application/json
+
+{
+    "JWT": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InRoZWNoYW5tYW4ucG90YXRvQGdtYWlsLmNvbSIsIkFkbWluIjpmYWxzZSwiaWF0IjoxNjE5MTUxMTU4LCJleHAiOjE2MTkxNTQ3NTh9.HwIadBQ9y0SBuzMA-P5XeVgGNS1DDJV5pLw8M2XhwAs"
+}
+
+###
+
+POST {{host}}/Users/edit
+Content-Type: application/json
+
+{
+    "Password": "salt2",
+    "FirstName": "FirstName",
+    "LastName": "LastName",
+    "JWT": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InNhbHQyQGdtYWlsLmNvbSIsImlhdCI6MTYxODg4NDIzMiwiZXhwIjoxNjE4ODg3ODMyfQ.wTTUuiwlaoLaD5KK7ipt1Vchv428PE3H8fbMuveYDr8"
+}
+
+###
+
+POST {{host}}/Users/delete
+Content-Type: application/json
+
+{
+    "JWT": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImExYzY4Yjc1QGJ2bXRrLmNvbSIsIkFkbWluIjpmYWxzZSwiaWF0IjoxNjE4OTY0MTA5LCJleHAiOjE2MTg5Njc3MDl9.749ymgFoxxrRqV7b3y__I71rES-OSlivYKb5C7FeG9I"
+}
+
+###
+
+POST {{host}}/Users/devDelete
+Content-Type: application/json
+
+{
+    "Email" : "thechanman.potato@gmail.com"
+}
+
+### Punch in email and give it a password to reset
+
+POST {{host}}/Users/devPassword
+Content-Type: application/json
+
+{
+    "Email" : "andrew13560@gmail.com",
+    "Password": "123"
+}

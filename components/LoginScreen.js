@@ -67,8 +67,9 @@ export default function App() {
   };
 
   const register = () => {
+    console.log("hi");
     axios
-      .post("http://192.168.0.2:8080/Users/register", {
+      .post("https://group19-housingmanager.herokuapp.com/Users/register", {
         Email: email,
         Password: password,
         FirstName: firstName,
@@ -127,7 +128,7 @@ export default function App() {
         } else if (!user && registerPage) {
           return (
             <RegisterComponent
-              doubleCheck={register}
+              checkEmail={register}
               setEmail={setEmail}
               setPassword={setPassword}
               setFirstName={setFirstName}

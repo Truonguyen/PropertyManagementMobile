@@ -6,10 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import SearchScreen from "./SearchScreen";
-import SaveScreen from "./SaveScreen";
 import LoginScreen from "./LoginScreen";
 import HomeScreen from "./HomeScreen";
-
 
 const TabNavigator = createMaterialBottomTabNavigator(
   {
@@ -35,22 +33,6 @@ const TabNavigator = createMaterialBottomTabNavigator(
               style={[{ color: tintColor }]}
               size={25}
               name={"ios-search"}
-            />
-          </View>
-        ),
-      },
-    },
-
-    Save: {
-      screen: SaveScreen,
-      navigationOptions: {
-        tabBarLabel: "Save",
-        tabBarIcon: ({ tintColor }) => (
-          <View>
-            <Icon
-              style={[{ color: tintColor }]}
-              size={25}
-              name={"ios-settings"}
             />
           </View>
         ),

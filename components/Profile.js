@@ -165,7 +165,7 @@ const Profile = (props) => {
 
       {/* SETTING MODAL */}
       <Modal visible={settingModal} animationType="slide">
-        <View style={styles.modalContent}>
+        <View>
           <MaterialIcons
             name="close"
             size={24}
