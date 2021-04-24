@@ -19,9 +19,12 @@ const LoginComponent = (props) => {
   //console.log(props);
 
   return (
-    <View>
+    <View>   
+      <View style = {styles.container2}>
+      <Image source = {require("../assets/logo4.png")} style = {styles.image}/>  
+      </View>
       <StatusBar style="auto" />
-      <View style={styles.inputView}>
+      <View style={styles.inputView}> 
         <TextInput
           style={styles.TextInput}
           placeholder="Email."
@@ -37,9 +40,9 @@ const LoginComponent = (props) => {
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
           onChangeText={(password) => props.setPassword(password)}
-        />
+        /> 
       </View>
-
+ 
       <TouchableOpacity>
         <Text style={styles.forgot_button}>Forgot Password?</Text>
       </TouchableOpacity>
@@ -54,7 +57,8 @@ const LoginComponent = (props) => {
       >
         <Text style={styles.registerButton}>New user? Register here</Text>
       </TouchableOpacity>
-      <Text>{props.set}</Text>
+      <Text>{props.set}</Text> 
+     
     </View>
   );
 };
@@ -69,21 +73,37 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignSelf: "center",
     alignContent: "center",
-  },
+  }, 
 
-  inputView: {
+  container2: {  
+    alignSelf: "flex-start", 
+    alignItems: "flex-start", 
+    alignContent: "flex-start",  
+    justifyContent: "flex-start"
+  }, 
+
+  image: {  
+
+    alignSelf: "center", 
+    marginRight: 0.03 * height, 
+    marginBottom: 0.1 * width
+
+  }, 
+
+  inputView: {  
+    alignSelf: "center", 
     backgroundColor: "#A4A4A7",
     borderRadius: 30,
     width: width * 0.75,
     height: 45,
-    marginBottom: 20,
+   marginBottom: 20,
     alignItems: "center",
   },
 
   TextInput: {
     height: 50,
     flex: 1,
-    padding: 10,
+    
     marginLeft: 20,
     alignItems: "center",
     justifyContent: "center",
@@ -110,7 +130,8 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
+    //marginTop: 40, 
+    marginBottom: 0.04 * width,
     backgroundColor: "#8da9c4",
     alignContent: "center",
     alignSelf: "center",

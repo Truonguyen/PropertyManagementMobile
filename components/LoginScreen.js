@@ -22,7 +22,9 @@ export default function App() {
   const [jwt, setJWT] = useState("");
   const [registerPage, setRegisterPage] = useState(false);
   const [user, setUser] = useState(false);
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(""); 
+  const [registerStatus, setRegisterStatus] = useState(""); 
+   
 
   const login = () => {
     // fetch("http:/192.168.0.2:8080/Users/login", {
@@ -50,7 +52,7 @@ export default function App() {
     else if (password.length == 0) setStatus("Password is empty. Try again");
     else {
       axios
-        .post("http://192.168.0.2:8080/Users/login", {
+        .post("http://192.168.0.118:8080/Users/login", {
           Email: email,
           Password: password,
         })
@@ -66,7 +68,9 @@ export default function App() {
     }
   };
 
-  const register = () => {
+  const register = () => {  
+    if (firstName.length == 0 || lastName.length == 0 || email.length == 0 || password.length ==0) setRegisterStatus ("Please fill out all fields");   
+    else {
     console.log("hi");
     axios
       .post("https://group19-housingmanager.herokuapp.com/Users/register", {
@@ -79,7 +83,11 @@ export default function App() {
         console.log(response);
         console.log("pineapple");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (error.request.status == 400) setRegisterStatus("Email is already in use!");
+      });
+    } 
+  };
 
     //   fetch("http://192.168.0.118:8080/Users/register", {
     //     method: "POST",
@@ -108,7 +116,7 @@ export default function App() {
     //       console.log(lastName)
     //       console.error(error);
     //     });
-  };
+  
 
   // axios.post();
 
@@ -126,7 +134,8 @@ export default function App() {
         if (user && !registerPage) {
           return <Profile checkRegister={setUser} userKey={jwt} />;
         } else if (!user && registerPage) {
-          return (
+          return ( 
+            <View>
             <RegisterComponent
               checkEmail={register}
               setEmail={setEmail}
@@ -134,7 +143,9 @@ export default function App() {
               setFirstName={setFirstName}
               setLastName={setLastName}
               checkRegister={toggleRegister}
-            />
+            /> 
+            <Text style={styles.rstatusText}>{registerStatus}</Text> 
+            </View>
           );
         } else if (!user && !registerPage) {
           return (
@@ -162,7 +173,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   statusText: {
-    color: "red",
+    color: "#B22222",
+    fontSize: 15,
+    fontWeight: "bold",
+    textAlign: "center",
+  }, 
+
+  rstatusText: {
+    color: "#B22222",
     fontSize: 15,
     fontWeight: "bold",
     textAlign: "center",

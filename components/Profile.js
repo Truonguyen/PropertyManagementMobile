@@ -29,7 +29,7 @@ const Profile = (props) => {
 
   const getProfile = () => {
     //console.log("hello");
-    fetch("http://192.168.0.2:8080/Users/", {
+    fetch("http://192.168.0.118:8080/Users/", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -277,6 +277,6 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     flex: 1,
-    backgroundColor: "#0B2545",
+    backgroundColor: "#0B2545", 
   },
 });

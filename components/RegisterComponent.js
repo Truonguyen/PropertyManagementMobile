@@ -59,14 +59,16 @@ const RegisterComponent = (props) => {
           onChangeText={(password) => props.setPassword(password)}
         />
       </View>
-
+      
+      <View>
       <TouchableOpacity onPress={props.checkEmail} style={styles.loginBtn}>
         <Text style={styles.loginText}>Register</Text>
       </TouchableOpacity>  
-    
+
       <TouchableOpacity onPress={props.checkRegister} style={styles.loginBtn}>
         <Text style = {styles.registerButton}>Back</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> 
+      </View> 
     </View>
   );
 };
