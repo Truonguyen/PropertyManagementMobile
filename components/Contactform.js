@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   
 
   text: {
-    fontFamily: "notoserif", 
+   
   }
 
 
