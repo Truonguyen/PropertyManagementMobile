@@ -18,7 +18,7 @@ const SettingForm = (props) => {
           console.log(values.last);
           console.log(values.password);
           console.log("from setting form " + props.getJWT);
-          fetch("http://192.168.0.3:8080/Users/edit", {
+          fetch("http://192.168.0.2:8080/Users/edit", {
             method: "POST",
             headers: {
               Accept: "application/json",

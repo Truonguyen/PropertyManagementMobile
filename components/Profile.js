@@ -15,6 +15,7 @@ import {
 import { Entypo, AntDesign, Feather, MaterialIcons } from "@expo/vector-icons";
 import { Avatar } from "react-native-paper";
 import SettingForm from "./SettingForm";
+import axios from "axios";
 
 const Profile = (props) => {
   const [settingModal, setSettingModal] = useState(false);
@@ -28,7 +29,7 @@ const Profile = (props) => {
 
   const getProfile = () => {
     //console.log("hello");
-    fetch("http://192.168.0.3:8080/Users/", {
+    fetch("http://192.168.0.2:8080/Users/", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -49,6 +50,21 @@ const Profile = (props) => {
       .catch((error) => {
         console.error(error);
       });
+  };
+
+  const deleteAcc = () => {
+    console.log("in delete" + jwt);
+    // axios
+    //   .post("http://192.168.0.2:8080/Users/delete", {
+    //     JWT: jwt,
+    //   })
+    //   .then((response) => {
+    //     console.log(response);
+    //     // setJWT(response.data.JWT);
+    //     // setUser(true);
+    //     // setRegisterPage(false);
+    //   })
+    //   .catch((error) => console.log(error));
   };
 
   useEffect(() => {
@@ -124,7 +140,10 @@ const Profile = (props) => {
           <Text style={{ color: "white" }}>Contact</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={props.checkRegister} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => props.checkRegister(false)}
+          style={styles.button}
+        >
           <AntDesign name="logout" size={24} color="white" />
           <Text style={{ color: "white" }}>Logout</Text>
         </TouchableOpacity>
@@ -133,7 +152,10 @@ const Profile = (props) => {
       <View style={styles.deleteView}>
         <TouchableOpacity
           style={styles.delete}
-          onPress={() => console.log("DELETE ACCOUNT")}
+          onPress={() => {
+            deleteAcc;
+            props.checkRegister(false);
+          }}
         >
           {/* <Feather name="phone-call" size={24} color="white" /> */}
           <Text style={{ color: "white" }}>DELETE ACCOUNT</Text>

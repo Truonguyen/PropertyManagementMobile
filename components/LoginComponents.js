@@ -2,13 +2,13 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import {
   StyleSheet,
-  Text, 
+  Text,
   Dimensions,
   View,
   Image,
   TextInput,
   Button,
-  TouchableOpacity, 
+  TouchableOpacity,
 } from "react-native";
 
 const { height, width } = Dimensions.get("window");
@@ -46,11 +46,15 @@ const LoginComponent = (props) => {
 
       <TouchableOpacity onPress={props.checkUser} style={styles.loginBtn}>
         <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity> 
-
-      <TouchableOpacity onPress={props.checkRegister} style={styles.registerButton}>
-        <Text style = {styles.registerButton}>New user? Register here</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={props.checkRegister}
+        style={styles.registerButton}
+      >
+        <Text style={styles.registerButton}>New user? Register here</Text>
+      </TouchableOpacity>
+      <Text>{props.set}</Text>
     </View>
   );
 };
@@ -62,9 +66,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center", 
-    alignSelf: "center", 
-    alignContent: "center"
+    justifyContent: "center",
+    alignSelf: "center",
+    alignContent: "center",
   },
 
   inputView: {
@@ -80,26 +84,23 @@ const styles = StyleSheet.create({
     height: 50,
     flex: 1,
     padding: 10,
-    marginLeft: 20, 
+    marginLeft: 20,
     alignItems: "center",
-    justifyContent: "center", 
-    alignSelf: "center", 
-    alignContent: "center"
-   
-  }, 
+    justifyContent: "center",
+    alignSelf: "center",
+    alignContent: "center",
+  },
 
   registerButton: {
-  
-    alignSelf: "center", 
-  
-  }, 
+    alignSelf: "center",
+  },
 
   forgot_button: {
     height: 30,
     marginBottom: 30,
-   // alignItems: "center",
-    // justifyContent: "center", 
-    alignSelf: "center", 
+    // alignItems: "center",
+    // justifyContent: "center",
+    alignSelf: "center",
     //alignContent: "center"
   },
 
@@ -110,9 +111,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 40,
-    backgroundColor: "#8da9c4",  
+    backgroundColor: "#8da9c4",
     alignContent: "center",
-    alignSelf: "center"
-
+    alignSelf: "center",
   },
 });
