@@ -184,7 +184,7 @@ const Profile = (props) => {
 
       {/* CONTACT MODAL */}
       <Modal visible={contactModal} animationType="slide">
-        <View style={styles.modalContent}>
+        <View style={styles.modalContactContent}>
           <MaterialIcons
             name="close"
             size={24}
