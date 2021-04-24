@@ -72,6 +72,9 @@ const Profile = (props) => {
   useEffect(() => {
     //setJWT(props.userKey);
     getProfile();
+    props.resetEmail("");
+    props.resetPass("");
+    props.resetStatus("");
     console.log("RELOAD PAGE jwt is " + jwt);
   }, []);
   return (

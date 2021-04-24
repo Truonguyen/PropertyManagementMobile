@@ -128,15 +128,19 @@ export default function App() {
     setRegisterPage(!registerPage);
   };
 
-  const toggleUser = () => {
-    setUser(false);
-  };
-
   return (
     <View style={styles.container}>
       {(() => {
         if (user && !registerPage) {
-          return <Profile checkRegister={setUser} userKey={jwt} />;
+          return (
+            <Profile
+              checkRegister={setUser}
+              userKey={jwt}
+              resetEmail={setEmail}
+              resetPass={setEmail}
+              resetStatus={setStatus}
+            />
+          );
         } else if (!user && registerPage) {
           return (
             <View>
