@@ -164,7 +164,7 @@ const Profile = (props) => {
 
       {/* CONTACT MODAL */}
       <Modal visible={contactModal} animationType="slide">
-        <View style={styles.modalContent}>
+        <View style={styles.modalContactContent}>
           <MaterialIcons
             name="close"
             size={24}
@@ -257,6 +257,10 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     flex: 1, 
+  }, 
+
+  modalContactContent: {
+    flex: 1,  
     backgroundColor: "#0B2545"
   },
-});
+}); 
