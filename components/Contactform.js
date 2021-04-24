@@ -64,13 +64,17 @@ const styles = StyleSheet.create({
     flex : 0.5,  
     flexDirection: "column",
     alignItems: "center", 
-    justifyContent: "flex-end",  
+    justifyContent: "center",  
     backgroundColor: "white", 
-    borderBottomLeftRadius: 50, 
-     borderBottomRightRadius: 50, 
-     borderTopLeftRadius: 50, 
-     borderTopRightRadius: 50, 
-     borderEndColor : "blue" 
+    borderBottomLeftRadius: 100, 
+     borderBottomRightRadius: 100, 
+     borderTopLeftRadius: 100, 
+     borderTopRightRadius: 100, 
+     borderEndColor : "#0B2545",  
+     borderRightWidth: 40, 
+     borderLeftWidth: 40, 
+     borderLeftColor: "#0B2545", 
+     
      
   },  
 
@@ -78,11 +82,18 @@ const styles = StyleSheet.create({
     flex : 0.5,  
     flexDirection: "column",
     alignItems: "center", 
-    justifyContent: "center"
+    justifyContent: "center", 
+    backgroundColor: "white", 
+    borderBottomLeftRadius: 90, 
+     borderBottomRightRadius: 90, 
+     borderTopLeftRadius: 100, 
+     borderTopRightRadius: 100, 
+     borderEndColor : "#0B2545"
+     
   },  
 
   image1: { 
-    width: 0.25 * height,  
+    width: 0.35 * height,  
     height: 0.5 * width, 
     borderRadius: 20,
   
