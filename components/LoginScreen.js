@@ -47,8 +47,7 @@ export default function App() {
     //     console.error(error);
     //   });
     if (email.length == 0) setStatus("Email is empty. Try again");
-    else if (password.length < 4)
-      setStatus("Password must have at least length of 5");
+    else if (password.length == 0) setStatus("Password is empty. Try again");
     else {
       axios
         .post("http://192.168.0.2:8080/Users/login", {

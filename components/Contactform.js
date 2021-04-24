@@ -1,76 +1,79 @@
-import React from "react"; 
-import { StyleSheet, Button, TextInput, View, Text } from "react-native";
-import { Formik } from "formik";  
+import React from "react";
+import { StyleSheet, Dimensions, Image, View, Text } from "react-native";
+
+const { height, width } = Dimensions.get("window");
 
 const ContactForm = (props) => {
-    return ( 
+  return (
+    <View style={styles.container}>
+      <View style={styles.parent1}>
+        <Text style={styles.textContact}>Contact Tiffany</Text>
+        <Image
+          source={require("../assets/tiffany.png")}
+          style={styles.image1}
+        />
 
-        <View style={globalStyles.container}>
-      <Formik
-        initialValues={{ title: "", body: "", rating: "" }}
-        // handleSubmit run onSubmit
-        onSubmit={(values) => {
-          console.log(values);
-        }}
-      >
-        {(props) => (
-          <View>
-            <TextInput
-              style={globalStyles.input}
-              placeholder="Review title"
-              onChangeText={props.handleChange("title")}
-              value={props.values.title}
-            />
+        <Text style={styles.text}>Phone: 352-390-7495</Text>
+        <Text style={styles.text}>Email: tsaikevin94@yahoo.com</Text>
+      </View>
 
-            <TextInput
-              style={globalStyles.input}
-              multiline
-              placeholder="Review details"
-              onChangeText={props.handleChange("body")}
-              value={props.values.body}
-            />
+      <View style={styles.parent2}>
+        <Image source={require("../assets/kevin.png")} style={styles.image1} />
 
-            <TextInput
-              style={globalStyles.input}
-              placeholder="Rating (1 - 5)"
-              onChangeText={props.handleChange("rating")}
-              value={props.values.rating}
-              keyboardType="numeric"
-            />
+        <Text style={styles.text}>Name: Kevin</Text>
 
-            <Button
-              color="maroon"
-              title="Submit"
-              onPress={props.handleSubmit}
-            />
-          </View>
-        )}
-      </Formik>
+        <Text style={styles.text}>Phone: 352-200-4273</Text>
+
+        <Text style={styles.text}>Email: kevin13560@yahoo.com.tw</Text>
+      </View>
     </View>
   );
 };
 
 export default ContactForm;
 
-export const globalStyles = StyleSheet.create({
-  titleText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#333",
-  },
-  paragraph: {
-    marginVertical: 8,
-    lineHeight: 20,
-  },
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    alignContent: "center",
   },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ddd",
-    padding: 10,
-    fontSize: 18,
-    borderRadius: 6,
+
+  parent1: {
+    flex: 0.5,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+    borderBottomLeftRadius: 100,
+    borderBottomRightRadius: 100,
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    borderEndColor: "#0B2545",
+    borderRightWidth: 40,
+    borderLeftWidth: 40,
+    borderLeftColor: "#0B2545",
   },
-});   
+
+  parent2: {
+    flex: 0.5,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
+    borderBottomLeftRadius: 90,
+    borderBottomRightRadius: 90,
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    borderEndColor: "#0B2545",
+  },
+
+  image1: {
+    width: 0.35 * height,
+    height: 0.5 * width,
+    borderRadius: 20,
+  },
+
+  text: {
+    fontFamily: "notoserif",
+  },
+});

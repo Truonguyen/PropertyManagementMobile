@@ -15,7 +15,7 @@ import {
 import { Entypo, AntDesign, Feather, MaterialIcons } from "@expo/vector-icons";
 import { Avatar } from "react-native-paper";
 import SettingForm from "./SettingForm";
-import axios from "axios";
+import ContactForm from "./ContactForm";
 
 const Profile = (props) => {
   const [settingModal, setSettingModal] = useState(false);
@@ -191,9 +191,7 @@ const Profile = (props) => {
             style={{ ...styles.modalToggle, ...styles.modalClose }}
             onPress={() => setContactModal(false)}
           />
-          <Text> Name: John Cena</Text>
-          <Text> Email: JohnCena123@gmail.com</Text>
-          <Text> Phone: 123-123-1234</Text>
+          <ContactForm />
         </View>
       </Modal>
     </View>
@@ -211,16 +209,17 @@ const styles = StyleSheet.create({
   },
   deleteView: {
     flexDirection: "column",
+    alignItems: "center",
   },
   delete: {
     marginTop: 40,
     alignItems: "center",
     borderWidth: 1,
-    //borderRadius: 4,
+    borderRadius: 10,
     borderColor: "lightgray",
-    backgroundColor: "#1C2541",
+    backgroundColor: "#B22222",
     padding: 10,
-    // width: "50%",
+    width: "50%",
   },
   name: {
     fontSize: 20,
@@ -247,7 +246,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     //borderRadius: 4,
     borderColor: "lightgray",
-    backgroundColor: "#1C2541",
+    backgroundColor: "#0B2545",
     padding: 10,
     width: "50%",
     //marginRight: 10,
@@ -278,5 +277,6 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     flex: 1,
+    backgroundColor: "#0B2545",
   },
 });
