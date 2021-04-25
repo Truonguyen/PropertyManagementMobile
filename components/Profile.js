@@ -81,13 +81,7 @@ const Profile = (props) => {
     <View style={styles.container}>
       {/* PROFILE  =================================================================*/}
       <View style={styles.profile}>
-        <Avatar.Image
-          source={{
-            uri:
-              "https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-          }}
-          size={80}
-        />
+        <Avatar.Image source={require("../assets/leinecker.jpg")} size={80} />
         <View style={styles.personalInfo}>
           <Text style={styles.name}>
             Welcome {fName} {lName}
@@ -170,7 +164,7 @@ const Profile = (props) => {
 
       {/* SETTING MODAL */}
       <Modal visible={settingModal} animationType="slide">
-        <View>
+        <View style={{ flex: 1, padding: 20 }}>
           <MaterialIcons
             name="close"
             size={24}
@@ -193,7 +187,10 @@ const Profile = (props) => {
           <MaterialIcons
             name="close"
             size={24}
-            style={{ ...styles.modalContactToggle, ...styles.modalContactClose }}
+            style={{
+              ...styles.modalContactToggle,
+              ...styles.modalContactClose,
+            }}
             onPress={() => setContactModal(false)}
           />
           <ContactForm />
@@ -274,8 +271,8 @@ const styles = StyleSheet.create({
     borderColor: "#f2f2f2",
     padding: 10,
     borderRadius: 10,
-    alignSelf: "center", 
-  }, 
+    alignSelf: "center",
+  },
   modalContactToggle: {
     justifyContent: "center",
     alignItems: "center",
@@ -284,19 +281,18 @@ const styles = StyleSheet.create({
     borderColor: "#f2f2f2",
     padding: 10,
     borderRadius: 10,
-    alignSelf: "center", 
+    alignSelf: "center",
     backgroundColor: "#B22222",
-  }, 
+  },
 
   modalClose: {
     marginTop: 20,
-    marginBottom: 0, 
-
-  }, 
+    marginBottom: 0,
+  },
 
   modalContactClose: {
     marginTop: 20,
-    marginBottom: 0, 
+    marginBottom: 0,
     backgroundColor: "lightgray",
   },
   modalContent: {

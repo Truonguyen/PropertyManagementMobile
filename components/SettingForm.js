@@ -1,10 +1,17 @@
 import React from "react";
-import { StyleSheet, Button, TextInput, View, Text } from "react-native";
+import {
+  StyleSheet,
+  Button,
+  TextInput,
+  View,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { Formik } from "formik"; // npm install formik
 
 const SettingForm = (props) => {
   return (
-    <View style={globalStyles.container}>
+    <View style={styles.container}>
       <Formik
         initialValues={{ first: "", last: "", password: "" }}
         // handleSubmit run onSubmit
@@ -44,14 +51,14 @@ const SettingForm = (props) => {
         {(props) => (
           <View>
             <TextInput
-              style={globalStyles.input}
+              style={styles.input}
               placeholder="First Name"
               onChangeText={props.handleChange("first")}
               value={props.values.first}
             />
 
             <TextInput
-              style={globalStyles.input}
+              style={styles.input}
               multiline
               placeholder="Last Name"
               onChangeText={props.handleChange("last")}
@@ -59,7 +66,7 @@ const SettingForm = (props) => {
             />
 
             <TextInput
-              style={globalStyles.input}
+              style={styles.input}
               placeholder="Password"
               onChangeText={props.handleChange("password")}
               value={props.values.password}
@@ -70,6 +77,14 @@ const SettingForm = (props) => {
               title="Submit"
               onPress={props.handleSubmit}
             />
+            {/* <TouchableOpacity
+              style={styles.butt}
+              onPress={{props.handleSubmit;
+              }}
+              
+            >
+              <Text>Submit</Text>
+            </TouchableOpacity> */}
           </View>
         )}
       </Formik>
@@ -79,11 +94,14 @@ const SettingForm = (props) => {
 
 export default SettingForm;
 
-export const globalStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   titleText: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#333",
+  },
+  butt: {
+    backgroundColor: "#1E6738",
   },
   paragraph: {
     marginVertical: 8,
