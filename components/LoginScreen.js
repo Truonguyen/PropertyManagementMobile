@@ -51,7 +51,7 @@ export default function App() {
     else if (password.length == 0) setStatus("Password is empty. Try again");
     else {
       axios
-        .post("http:// 192.168.0.118:8080/Users/login", {
+        .post("http://192.168.0.2:8080/Users/login", {
           Email: email,
           Password: password,
         })
@@ -60,6 +60,7 @@ export default function App() {
           setJWT(response.data.JWT);
           setUser(true);
           setRegisterPage(false);
+          console.log("hi");
         })
         .catch((error) => {
           if (error.request.status == 400) setStatus("Wrong Username/Password");

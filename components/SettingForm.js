@@ -50,6 +50,7 @@ const SettingForm = (props) => {
       >
         {(props) => (
           <View>
+            <Text style={styles.setting}>SETTING</Text>
             <TextInput
               style={styles.input}
               placeholder="First Name"
@@ -72,19 +73,17 @@ const SettingForm = (props) => {
               value={props.values.password}
             />
 
-            <Button
-              color="maroon"
+            {/* <Button
+              style={styles.butt}
               title="Submit"
               onPress={props.handleSubmit}
-            />
-            {/* <TouchableOpacity
-              style={styles.butt}
-              onPress={{props.handleSubmit;
-              }}
-              
+            /> */}
+            <TouchableOpacity
+              style={styles.button}
+              onPress={props.handleSubmit}
             >
-              <Text>Submit</Text>
-            </TouchableOpacity> */}
+              <Text style={styles.submitButt}>Submit</Text>
+            </TouchableOpacity>
           </View>
         )}
       </Formik>
@@ -95,13 +94,27 @@ const SettingForm = (props) => {
 export default SettingForm;
 
 const styles = StyleSheet.create({
+  setting: {
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#1C2541",
+    alignSelf: "center",
+    marginBottom: 30,
+  },
   titleText: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#333",
   },
-  butt: {
-    backgroundColor: "#1E6738",
+  button: {
+    alignItems: "center",
+    backgroundColor: "#1C2541",
+    padding: 10,
+  },
+  submitButt: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "white",
   },
   paragraph: {
     marginVertical: 8,
@@ -117,5 +130,6 @@ const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     borderRadius: 6,
+    marginBottom: 5,
   },
 });

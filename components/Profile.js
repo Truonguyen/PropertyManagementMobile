@@ -30,7 +30,7 @@ const Profile = (props) => {
 
   const getProfile = () => {
     //console.log("hello");
-    fetch("http:// 192.168.0.118:8080/Users/", {
+    fetch("http://192.168.0.2:8080/Users/", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -56,7 +56,7 @@ const Profile = (props) => {
   const deleteAcc = () => {
     console.log("in delete" + jwt);
     axios
-      .post("http:// 192.168.0.118:8080/Users/delete", {
+      .post("http://192.168.0.2:8080/Users/delete", {
         JWT: jwt,
       })
       .then((response) => {
