@@ -27,7 +27,7 @@ const LoginComponent = (props) => {
       <View style={styles.inputView}> 
         <TextInput
           style={styles.TextInput}
-          placeholder="Email."
+          placeholder="Email"
           placeholderTextColor="#003f5c"
           onChangeText={(email) => props.setEmail(email)}
         />
@@ -36,7 +36,7 @@ const LoginComponent = (props) => {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Password."
+          placeholder="Password"
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
           onChangeText={(password) => props.setPassword(password)}
@@ -103,12 +103,12 @@ const styles = StyleSheet.create({
   TextInput: {
     height: 50,
     flex: 1,
-    
     marginLeft: 20,
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
-    alignContent: "center",
+    alignContent: "center", 
+    textAlign: "center"
   },
 
   registerButton: {
@@ -118,10 +118,10 @@ const styles = StyleSheet.create({
   forgot_button: {
     height: 30,
     marginBottom: 30,
-    // alignItems: "center",
-    // justifyContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
     alignSelf: "center",
-    //alignContent: "center"
+    alignContent: "center"
   },
 
   loginBtn: {
@@ -130,7 +130,6 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    //marginTop: 40, 
     marginBottom: 0.04 * width,
     backgroundColor: "#8da9c4",
     alignContent: "center",

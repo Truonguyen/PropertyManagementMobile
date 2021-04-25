@@ -44,7 +44,7 @@ const RegisterComponent = (props) => {
 
       <View style={styles.inputView}>
         <TextInput
-          style={styles.TextInput}
+          style={styles.emailTextInput}
           placeholder="Email"
           placeholderTextColor="#003f5c"
           onChangeText={(email) => props.setEmail(email)}
@@ -54,7 +54,7 @@ const RegisterComponent = (props) => {
       <View style={styles.inputView}>
         <TextInput
           style={styles.TextInput}
-          placeholder="Password."
+          placeholder="Password"
           placeholderTextColor="#003f5c"
           secureTextEntry={true}
           onChangeText={(password) => props.setPassword(password)}
@@ -63,11 +63,11 @@ const RegisterComponent = (props) => {
       
       <View>
       <TouchableOpacity onPress={props.checkEmail} style={styles.loginBtn}>
-        <Text style={styles.loginText}>Register</Text>
+        <Text style={styles.loginText}>REGISTER</Text>
       </TouchableOpacity>  
 
       <TouchableOpacity onPress={props.checkRegister} style={styles.loginBtn}>
-        <Text style = {styles.registerButton}>Back</Text>
+        <Text style = {styles.registerButton}>BACK</Text>
       </TouchableOpacity> 
       </View> 
     </View>
@@ -98,17 +98,29 @@ const styles = StyleSheet.create({
   TextInput: {
     height: 50,
     flex: 1,
-    padding: 10,
-    marginLeft: 20, 
+   
+    marginLeft: 0.01 * height, 
     alignItems: "center",
     justifyContent: "center", 
     alignSelf: "center", 
-    alignContent: "center"
+    alignContent: "center", 
    
-  }, 
+  },  
+
+  emailTextInput :{ 
+    height: 50,
+    flex: 1,
+   
+    marginLeft: 0.009 * height, 
+    alignItems: "center",
+    justifyContent: "center", 
+    alignSelf: "center", 
+    alignContent: "center", 
+
+
+  },
 
   registerButton: {
-  
     alignSelf: "center", 
   
   }, 
@@ -129,11 +141,13 @@ const styles = StyleSheet.create({
     marginTop: 0.04 * width, 
     backgroundColor: "#8da9c4",  
     alignContent: "center",
-    alignSelf: "center"
+    alignSelf: "center",
+    marginLeft: 0.02 * width
 
   }, 
   account: {
-    marginBottom: 0.04 * width, 
+    marginBottom: 0.04 * width,  
+    marginLeft: 0.009 * width,
     alignSelf: "center",  
     alignContent: "center", 
     fontWeight: "bold", 
